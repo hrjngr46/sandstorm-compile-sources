@@ -1,0 +1,37 @@
+
+$weightlist "weights_trigger" {
+	"b_root" 0
+	"b_wpn" 0
+	"b_wpn_trigger" 1
+	"b_ch_r_finger_10" 1
+	"b_ch_r_finger_12" 0
+	"ValveBiped.Bip01_R_Finger12" 0
+	"ValveBiped.Bip01_R_Finger11" 0 
+	"ValveBiped.Bip01_R_Finger1" 0
+}
+
+$definemacro macro_idlesequence \\
+"anims\AN_1P_SIG_B_Idle.smd"
+
+$sequence "idle" {
+	$macro_idlesequence
+}
+
+$sequence delta_trigger delta {
+	"anims\AN_1P_SIG_B_FireTrigger.smd"
+	weightlist "weights_trigger"
+}
+
+$sequence "fire_test" {
+	$macro_idlesequence
+	activity "ACT_VM_FIRE" 1
+	blendlayer "delta_trigger" 0 1 10 10
+	snap
+	fps 30
+}
+
+$sequence "reload_empty" {
+	"anims/AN_1P_SIG_B_Reload_Empty.smd"
+	activity "ACT_VM_RELOAD_EMPTY" 1
+	fps 30
+}
