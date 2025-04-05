@@ -204,14 +204,23 @@ $sequence "idle" {
 	$macro_idlesequence
 }
 
-$sequence "delta_boltback" {
+$sequence "delta_fire_boltback" {
 	"anims\AN_1P_SIG_B_FireBolt.smd"
 	frames 0 10
 	weightlist "weights_boltback"
 }
 
 $definemacro macro_fire_bolt \\
-blendlayer "delta_boltback" 0 1 10 10
+blendlayer "delta_fire_boltback" 0 1 10 10
+
+$sequence "delta_boltback" {
+	"anims\AN_1P_SIG_B_FireBolt.smd"
+	frames 1 1
+	weightlist "weights_boltback"
+}
+
+$definemacro macro_empty_bolt \\
+addlayer "delta_boltback"
 
 $sequence delta_trigger delta {
 	"anims\AN_1P_SIG_B_FireTrigger.smd"
@@ -235,6 +244,19 @@ $sequence "fire_test" {
 	$macro_idlesequence
 	activity "ACT_VM_FIRE" 1
 	$macro_fire_bolt
+	$macro_fire_trigger
+	snap
+	addlayer "delta_ik_fire_1"
+	frames 0 40
+	ikrule rhand touch "b_wpn" usesource
+	ikrule lhand touch "b_wpn" usesource
+	fps 30
+}
+
+$sequence "empty_fire_test" {
+	$macro_idlesequence
+	activity "ACT_VM_FIRE" 1
+	$macro_empty_bolt
 	$macro_fire_trigger
 	snap
 	addlayer "delta_ik_fire_1"
