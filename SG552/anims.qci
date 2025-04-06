@@ -264,12 +264,16 @@ $weightlist "weights_wpnonly" {
 
 $include "F:\tools\Sandstorm-Compile-Sources\sandstorm_hand_ik.qci"
 
+//Idle macro
+
 $definemacro macro_idlesequence \\
 "anims\AN_1P_SIG_B_Idle.smd"
 
 $sequence "idle" {
 	$macro_idlesequence
 }
+
+//Bolt layers
 
 $sequence "delta_fire_boltback" {
 	"anims\AN_1P_SIG_B_FireBolt.smd"
@@ -289,6 +293,8 @@ $sequence "delta_boltback" {
 $definemacro macro_empty_bolt \\
 addlayer "delta_boltback"
 
+//Trigger layers
+
 $sequence delta_trigger delta {
 	"anims\AN_1P_SIG_B_FireTrigger.smd"
 	frames 0 10
@@ -297,6 +303,8 @@ $sequence delta_trigger delta {
 
 $definemacro macro_fire_trigger \\
 blendlayer "delta_trigger" 0 1 10 10
+
+//IK fire layers
 
 $animation a_ik_fire_1 "anims\AN_1P_SIG_B_Fire_1.smd"
 $sequence "delta_ik_fire_1" a_ik_fire_1 weightlist "weights_wpnonly"
@@ -307,8 +315,23 @@ $sequence "delta_ik_fire_2" a_ik_fire_2 weightlist "weights_wpnonly"
 $animation a_ik_fire_3 "anims\AN_1P_SIG_B_Fire_3.smd"
 $sequence "delta_ik_fire_3" a_ik_fire_3 weightlist "weights_wpnonly"
 
+//IK iron fire layers
+
+$animation a_ik_i_fire_1 "anims\AN_1P_SIG_B_IRON_Fire_1.smd"
+$sequence "delta_ik_i_fire_1" a_ik_i_fire_1 weightlist "weights_wpnonly"
+
+$animation a_ik_i_fire_2 "anims\AN_1P_SIG_B_IRON_Fire_2.smd"
+$sequence "delta_ik_i_fire_2" a_ik_i_fire_2 weightlist "weights_wpnonly"
+
+$animation a_ik_i_fire_3 "anims\AN_1P_SIG_B_IRON_Fire_3.smd"
+$sequence "delta_ik_i_fire_3" a_ik_i_fire_3 weightlist "weights_wpnonly"
+
+//IK sprint
+
 $animation a_ik_sprint "F:\tools\Sandstorm-Compile-Sources\Shared anims\anims\AN_1P_GEN_RIF_B_Sprint_Alt.smd"
 $sequence "delta_ik_sprint" a_ik_sprint weightlist "weights_sprint"
+
+//Sequences
 
 $sequence "reload_empty" {
 	"anims/AN_1P_SIG_B_Reload_Empty.smd"
