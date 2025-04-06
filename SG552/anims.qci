@@ -16,6 +16,133 @@ $weightlist "weights_boltback" {
 	"b_wpn_chargehandle" 1
 }
 
+$weightlist "weights_sprint" {
+	"b_root" 0
+	"b_wpn" 1
+	"b_wpn_eject" 0
+	"b_wpn_fireselect" 0
+	"b_wpn_magrelease" 0
+	"b_wpn_muzzle" 0
+	"b_wpn_optic" 0
+	"b_wpn_suppressor" 0
+	"b_wpn_suppressor_muzzle" 0
+	"b_wpn_trigger" 0
+	"ik_hand_wpn_l" 0
+	"ik_hand_wpn_r" 0
+	"b_wpn_laser" 0
+	"b_wpn_laser_beam" 0
+	"b_wpn_flash" 0
+	"b_wpn_flash_beam" 0
+	"b_wpn_bipod" 0
+	"b_wpn_bipod_base" 0
+	"b_wpn_bipod_base_r" 0
+	"b_wpn_bipod_base_l" 0
+	"Rag" 0
+	"b_wpn_mag" 0
+	"b_wpn_mag_b1" 0
+	"b_wpn_mag_b2" 0
+	"b_wpn_mag_follow" 0
+	"b_wpn_mag_b3" 0
+	"b_wpn_mag_b4" 0
+	"b_wpn_mag_b5" 0
+	"b_wpn_mag_b6" 0
+	"b_wpn_mag_b7" 0
+	"b_wpn_mag_b8" 0
+	"b_wpn_mag_b9" 0
+	"b_wpn_mag_b10" 0
+	"b_wpn_mag_b11" 0
+	"b_wpn_mag_b12" 0
+	"b_wpn_mag_b13" 0
+	"b_wpn_mag_b14" 0
+	"b_wpn_mag_b15" 0
+	"b_wpn_mag_b16" 0
+	"b_wpn_mag_b17" 0
+	"b_wpn_mag_b18" 0
+	"b_wpn_mag_b19" 0
+	"b_wpn_mag_b20" 0
+	"b_wpn_mag_b21" 0
+	"b_wpn_mag_b22" 0
+	"b_wpn_mag_b23" 0
+	"b_wpn_mag_b24" 0
+	"b_wpn_mag_b25" 0
+	"b_wpn_mag_b26" 0
+	"b_wpn_mag_b27" 0
+	"b_wpn_mag_b28" 0
+	"b_wpn_mag_b29" 0
+	"b_ch_r_clavical" 1
+	"b_ch_r_upperarm" 0
+	"b_ch_r_forearm" 0
+	"b_ch_r_hand" 0
+	"b_ch_r_finger_10" 1
+	"b_ch_r_finger_11" 1
+	"b_ch_r_finger_12" 1
+	"ik_hand_r" 0
+	"Lighter" 0
+	"MagExtended" 0
+	"MagStandard" 0
+	"b_wpn_bolt" 0
+	"b_wpn_foregrip" 0
+	"b_wpn_gl" 0
+	"b_wpn_gl_trigger" 0
+	"b_wpn_gl_round" 0
+	"b_wpn_gl_casing" 0
+	"b_wpn_gl_muzzle" 0
+	"b_wpn_bayonet" 0
+	"b_wpn_mag_2" 0
+	"MagStandard2" 0
+	"MagExtended2" 0
+	"b_wpn_chargehandle" 0
+	"b_wpn_spec_1" 0
+	"b_wpn_spec_2" 0
+	"Eject" 0
+	"Muzzle" 0
+	"A_AC_Rail_T" 0
+	"A_B_Suppressor" 0
+	"A_S_APCompM2" 0
+	"A_S_OKP" 0
+	"A_S_Kobra" 0
+	"A_S_Eotech" 0
+	"A_S_2xAPCompM2" 0
+	"A_S_C79" 0
+	"A_S_2xEotech" 0
+	"A_AC_Rail_B" 0
+	"A_FG_Main" 0
+	"A_AC_Rail_L" 0
+	"A_LS_Generic" 0
+	"A_AC_Rail_R" 0
+	"A_FL_Generic" 0
+	"Muzzle.001" 0
+	"Eject.001" 0
+	"A_AC_Rail_R.001" 0
+	"A_AC_Rail_L.001" 0
+	"A_S_Iron" 0
+	"A_AC_Rail_B.001" 0
+	"A_AC_Rail_T.001" 0
+	"A_S_APCompM2.001" 0
+	"A_FG_Main.001" 0
+	"A_B_Suppressor.001" 0
+	"A_FL_Generic.001" 0
+	"A_LS_Generic.001" 0
+	"A_S_C79.001" 0
+	"A_S_2xAPCompM2.001" 0
+	"A_S_Eotech.001" 0
+	"A_S_Kobra.001" 0
+	"A_S_PO" 0
+	"A_S_2xEotech.001" 0
+	"A_S_Scope" 0
+	"A_MK_Main" 0
+	"A_S_OKP.001" 0
+	"A_S_PKAS" 0
+	"KitSelect" 0
+	"LauncherSmoke" 0
+	"Link" 0
+	"A_S_PU" 0
+	"SightAlignment" 0
+	"A_S_FG_AFG" 0
+	"Root" 0
+	"Menu" 0
+}
+
 $weightlist "weights_wpnonly" {
 	"b_root" 0
 	"b_wpn" 1
@@ -181,7 +308,7 @@ $animation a_ik_fire_3 "anims\AN_1P_SIG_B_Fire_3.smd"
 $sequence "delta_ik_fire_3" a_ik_fire_3 weightlist "weights_wpnonly"
 
 $animation a_ik_sprint "F:\tools\Sandstorm-Compile-Sources\Shared anims\anims\AN_1P_GEN_RIF_B_Sprint_Alt.smd"
-$sequence "delta_ik_sprint" a_ik_sprint weightlist "weights_wpnonly"
+$sequence "delta_ik_sprint" a_ik_sprint weightlist "weights_sprint"
 
 $sequence "reload_empty" {
 	"anims/AN_1P_SIG_B_Reload_Empty.smd"
