@@ -1,7 +1,7 @@
 import bpy
 
 # Scale factor (0.5 for exaple)
-scale_factor = 1
+scale_factor = 0.393700787
 
 # Select object (armature)
 obj = bpy.context.object

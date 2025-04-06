@@ -16,6 +16,12 @@ $weightlist "weights_boltback" {
 	"b_wpn_chargehandle" 1
 }
 
+$weightlist "weights_checkammo" {
+	"b_root" 0
+	"b_wpn" 0
+	"b_ch_l_clavical" 1
+}
+
 $weightlist "weights_sprint" {
 	"b_root" 0
 	"b_wpn" 1
@@ -304,6 +310,15 @@ $sequence delta_trigger delta {
 $definemacro macro_fire_trigger \\
 blendlayer "delta_trigger" 0 1 10 10
 
+$sequence delta_checkammo {
+	"anims\AN_1P_GEN_RIF_B_CheckAmmo.smd"
+	frames 0 10
+	weightlist "weights_checkammo"
+}
+
+$definemacro macro_checkammo \\
+blendlayer "delta_checkammo" 5 5 75 75
+
 //IK fire layers
 
 $animation a_ik_fire_1 "anims\AN_1P_SIG_B_Fire_1.smd"
@@ -314,6 +329,14 @@ $sequence "delta_ik_fire_2" a_ik_fire_2 weightlist "weights_wpnonly"
 
 $animation a_ik_fire_3 "anims\AN_1P_SIG_B_Fire_3.smd"
 $sequence "delta_ik_fire_3" a_ik_fire_3 weightlist "weights_wpnonly"
+
+//IK dryfire
+
+$animation a_ik_dryfire "F:\tools\Sandstorm-Compile-Sources\Shared anims\anims\AN_1P_GEN_RIF_B_Dryfire.smd"
+$sequence "delta_ik_dryfire" delta a_ik_dryfire weightlist "weights_wpnonly"
+
+$animation a_ik_i_dryfire "F:\tools\Sandstorm-Compile-Sources\Shared anims\anims\AN_1P_GEN_RIF_B_IRON_Dryfire.smd"
+$sequence "delta_ik_i_dryfire" delta a_ik_i_dryfire weightlist "weights_wpnonly"
 
 //IK iron fire layers
 
@@ -336,6 +359,13 @@ $sequence "delta_ik_sprint" a_ik_sprint weightlist "weights_sprint"
 $sequence "reload_empty" {
 	"anims/AN_1P_SIG_B_Reload_Empty.smd"
 	activity "ACT_VM_RELOAD_EMPTY" 1
+	fps 30
+}
+
+$sequence "b_checkammo" {
+	$macro_idlesequence
+	$macro_checkammo
+	frames 0 80
 	fps 30
 }
 
@@ -417,6 +447,32 @@ $sequence "i_fire_3" {
 	fps 30
 }
 
+$sequence "b_dryfire" {
+	$macro_idlesequence
+	activity "ACT_VM_FIRE" 1
+	$macro_empty_bolt
+	$macro_fire_trigger
+	snap
+	addlayer "delta_ik_dryfire"
+	frames 0 20
+	ikrule rhand touch "b_wpn" usesource
+	ikrule lhand touch "b_wpn" usesource
+	fps 30
+}
+
+$sequence "i_dryfire" {
+	$macro_idlesequence
+	activity "ACT_VM_FIRE" 1
+	$macro_empty_bolt
+	$macro_fire_trigger
+	snap
+	addlayer "delta_ik_i_dryfire"
+	frames 0 20
+	ikrule rhand touch "b_wpn" usesource
+	ikrule lhand touch "b_wpn" usesource
+	fps 30
+}
+
 $sequence "b_sprint" {
 	$macro_idlesequence
 	activity "ACT_VM_SPRINT" 1
@@ -435,19 +491,6 @@ $sequence "e_sprint" {
 	loop
 	addlayer "delta_ik_sprint"
 	frames 0 69
-	ikrule rhand touch "b_wpn" usesource
-	ikrule lhand touch "b_wpn" usesource
-	fps 30
-}
-
-$sequence "empty_fire_test" {
-	$macro_idlesequence
-	activity "ACT_VM_FIRE" 1
-	$macro_empty_bolt
-	$macro_fire_trigger
-	snap
-	addlayer "delta_ik_fire_1"
-	frames 0 40
 	ikrule rhand touch "b_wpn" usesource
 	ikrule lhand touch "b_wpn" usesource
 	fps 30
