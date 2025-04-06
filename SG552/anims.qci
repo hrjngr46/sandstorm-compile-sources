@@ -378,9 +378,60 @@ $sequence "b_fire_3" {
 	fps 30
 }
 
+$sequence "i_fire_1" {
+	$macro_idlesequence
+	activity "ACT_VM_FIRE" 1
+	$macro_fire_bolt
+	$macro_fire_trigger
+	snap
+	addlayer "delta_ik_i_fire_1"
+	frames 0 30
+	ikrule rhand touch "b_wpn" usesource
+	ikrule lhand touch "b_wpn" usesource
+	fps 30
+}
+
+$sequence "i_fire_2" {
+	$macro_idlesequence
+	activity "ACT_VM_FIRE" 1
+	$macro_fire_bolt
+	$macro_fire_trigger
+	snap
+	addlayer "delta_ik_i_fire_2"
+	frames 0 30
+	ikrule rhand touch "b_wpn" usesource
+	ikrule lhand touch "b_wpn" usesource
+	fps 30
+}
+
+$sequence "i_fire_3" {
+	$macro_idlesequence
+	activity "ACT_VM_FIRE" 1
+	$macro_fire_bolt
+	$macro_fire_trigger
+	snap
+	addlayer "delta_ik_i_fire_3"
+	frames 0 30
+	ikrule rhand touch "b_wpn" usesource
+	ikrule lhand touch "b_wpn" usesource
+	fps 30
+}
+
 $sequence "b_sprint" {
 	$macro_idlesequence
 	activity "ACT_VM_SPRINT" 1
+	loop
+	addlayer "delta_ik_sprint"
+	frames 0 69
+	ikrule rhand touch "b_wpn" usesource
+	ikrule lhand touch "b_wpn" usesource
+	fps 30
+}
+
+$sequence "e_sprint" {
+	$macro_idlesequence
+	activity "ACT_VM_SPRINT" 1
+	$macro_empty_bolt
 	loop
 	addlayer "delta_ik_sprint"
 	frames 0 69
