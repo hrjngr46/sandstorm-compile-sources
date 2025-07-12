@@ -1,0 +1,50 @@
+//Idle macro
+
+$definemacro macro_idlesequence \\
+"anims\AN_1P_Welrod_B_Idle.smd"
+
+//IK darw/holster
+
+$animation a_ik_draw "F:\tools\sandstorm_source_files\release\animations\gen_pist\anims\an_1p_gen_pist_b_draw.smd"
+$sequence "delta_ik_draw" delta a_ik_draw weightlist "weapon_only"
+
+$animation a_ik_holster "F:\tools\sandstorm_source_files\release\animations\gen_pist\anims\an_1p_gen_pist_b_holster.smd"
+$sequence "delta_ik_holster" delta a_ik_holster weightlist "weapon_only"
+
+$sequence "idle" {
+	$macro_idlesequence
+}
+
+$sequence "b_idle" {
+	$macro_idlesequence
+	ikrule rhand touch "b_wpn" usesource
+	ikrule lhand touch "b_wpn" usesource
+	fps 30
+}
+
+$sequence "b_ready" {
+	"anims\AN_1P_Welrod_B_Ready.smd"
+	ikrule rhand touch "b_wpn" usesource
+	ikrule lhand touch "b_wpn" usesource
+	fps 30
+}
+
+$sequence "b_draw" {
+	$macro_idlesequence
+	addlayer "delta_ik_draw"
+	frames 0 35
+	ikrule rhand touch "b_wpn" usesource
+	ikrule lhand touch "b_wpn" usesource
+	snap
+	fps 30
+}
+
+$sequence "b_holster" {
+	$macro_idlesequence
+	addlayer "delta_ik_holster"
+	frames 0 19
+	ikrule rhand touch "b_wpn" usesource
+	ikrule lhand touch "b_wpn" usesource
+	snap
+	fps 30
+}

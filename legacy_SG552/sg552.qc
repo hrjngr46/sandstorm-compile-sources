@@ -17,6 +17,8 @@ $bodygroup "mag"
 
 //$include "Bonemerge.qci"
 
+$include "weightlist.qci"
+
 $include "anims.qci"
 
 $include "F:\tools\Sandstorm-Compile-Sources\gmod_bones_follow_sandstorm.qci"
