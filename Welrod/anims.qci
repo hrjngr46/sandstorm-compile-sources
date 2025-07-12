@@ -63,7 +63,6 @@ $sequence "b_sprint" {
 	addlayer "delta_ik_sprint"
 	frames 0 26
 	ikrule rhand touch "b_wpn" usesource
-//	ikrule lhand touch "b_wpn" usesource
 	snap
 	fps 30
 }
