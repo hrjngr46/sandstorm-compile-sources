@@ -3,17 +3,28 @@
 $definemacro macro_idlesequence \\
 "anims\AN_1P_Welrod_B_Idle.smd"
 
-//IK darw/holster
-
-$animation a_ik_draw "F:\tools\sandstorm_source_files\release\animations\gen_pist\anims\an_1p_gen_pist_b_draw.smd"
-$sequence "delta_ik_draw" delta a_ik_draw weightlist "weapon_only"
-
-$animation a_ik_holster "F:\tools\sandstorm_source_files\release\animations\gen_pist\anims\an_1p_gen_pist_b_holster.smd"
-$sequence "delta_ik_holster" delta a_ik_holster weightlist "weapon_only"
-
 $sequence "idle" {
 	$macro_idlesequence
 }
+
+//IK darw/holster
+
+$sequence "delta_ik_draw" predelta {
+	"F:\tools\sandstorm_source_files\release\animations\gen_pist\anims\an_1p_gen_pist_b_draw.smd"
+	weightlist "draw_holster"
+	hidden
+}
+
+$sequence "delta_ik_holster" predelta {
+	"F:\tools\sandstorm_source_files\release\animations\gen_pist\anims\an_1p_gen_pist_b_holster.smd"
+	weightlist "draw_holster"
+	hidden
+}
+
+//IK sprint
+
+$animation a_ik_sprint "F:\tools\sandstorm_source_files\release\animations\gen_pist\anims\an_1p_gen_pist_m_sprint.smd" subtract "idle" 0
+$sequence "delta_ik_sprint" delta a_ik_sprint weightlist "sprint" loop fixuploop -1 1
 
 $sequence "b_idle" {
 	$macro_idlesequence
@@ -34,7 +45,6 @@ $sequence "b_draw" {
 	addlayer "delta_ik_draw"
 	frames 0 35
 	ikrule rhand touch "b_wpn" usesource
-	ikrule lhand touch "b_wpn" usesource
 	snap
 	fps 30
 }
@@ -44,7 +54,16 @@ $sequence "b_holster" {
 	addlayer "delta_ik_holster"
 	frames 0 19
 	ikrule rhand touch "b_wpn" usesource
-	ikrule lhand touch "b_wpn" usesource
+	snap
+	fps 30
+}
+
+$sequence "b_sprint" {
+	$macro_idlesequence
+	addlayer "delta_ik_sprint"
+	frames 0 26
+	ikrule rhand touch "b_wpn" usesource
+//	ikrule lhand touch "b_wpn" usesource
 	snap
 	fps 30
 }
