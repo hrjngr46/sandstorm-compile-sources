@@ -7,6 +7,17 @@ $sequence "idle" {
 	$macro_idlesequence
 }
 
+//IK fire layers
+
+$animation a_ik_fire_1 "F:\tools\sandstorm_source_files\release\animations\gen_pist\anims\an_1p_gen_pist_b_fire.smd"
+$sequence "delta_ik_fire_1" delta a_ik_fire_1 weightlist "weapon_only"
+
+$animation a_ik_fire_2 "F:\tools\sandstorm_source_files\release\animations\gen_pist\anims\an_1p_gen_pist_b_fire_2.smd"
+$sequence "delta_ik_fire_2" delta a_ik_fire_2 weightlist "weapon_only"
+
+$animation a_ik_fire_3 "F:\tools\sandstorm_source_files\release\animations\gen_pist\anims\an_1p_gen_pist_b_fire_3.smd"
+$sequence "delta_ik_fire_3" delta a_ik_fire_3 weightlist "weapon_only"
+
 //IK darw/holster
 
 $sequence "delta_ik_draw" predelta {
@@ -55,14 +66,6 @@ $sequence "b_draw" {
 	fps 30
 }
 
-$sequence "b_checkammo" {
-	$macro_idlesequence
-	addlayer "delta_ik_checkammo"
-	ikrule rhand touch "b_wpn" usesource
-	frames 0 81
-	fps 30
-}
-
 $sequence "b_holster" {
 	$macro_idlesequence
 	addlayer "delta_ik_holster"	
@@ -77,5 +80,35 @@ $sequence "b_sprint" {
 	ikrule rhand touch "b_wpn" usesource
 	loop
 	frames 0 26
+	fps 30
+}
+
+$sequence "b_fire_1" {
+	$macro_idlesequence
+	addlayer "delta_ik_fire_1"
+	ikrule rhand touch "b_wpn" usesource
+	ikrule lhand touch "b_wpn" usesource
+	snap
+	frames 0 40
+	fps 30
+}
+
+$sequence "b_fire_2" {
+	$macro_idlesequence
+	addlayer "delta_ik_fire_2"
+	ikrule rhand touch "b_wpn" usesource
+	ikrule lhand touch "b_wpn" usesource
+	snap
+	frames 0 40
+	fps 30
+}
+
+$sequence "b_fire_3" {
+	$macro_idlesequence
+	addlayer "delta_ik_fire_3"
+	ikrule rhand touch "b_wpn" usesource
+	ikrule lhand touch "b_wpn" usesource
+	snap
+	frames 0 40
 	fps 30
 }
