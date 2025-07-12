@@ -21,6 +21,12 @@ $sequence "delta_ik_holster" predelta {
 	hidden
 }
 
+$sequence "delta_ik_checkammo" predelta {
+	"F:\tools\sandstorm_source_files\release\animations\gen_rif\anims\an_1p_gen_rif_b_checkammo.smd"
+	weightlist "checkammo"
+	hidden
+}
+
 //IK sprint
 
 $animation a_ik_sprint "F:\tools\sandstorm_source_files\release\animations\gen_pist\anims\an_1p_gen_pist_m_sprint.smd" subtract "idle" 0
@@ -30,6 +36,7 @@ $sequence "b_idle" {
 	$macro_idlesequence
 	ikrule rhand touch "b_wpn" usesource
 	ikrule lhand touch "b_wpn" usesource
+	loop
 	fps 30
 }
 
@@ -43,26 +50,32 @@ $sequence "b_ready" {
 $sequence "b_draw" {
 	$macro_idlesequence
 	addlayer "delta_ik_draw"
-	frames 0 35
 	ikrule rhand touch "b_wpn" usesource
-	snap
+	frames 0 35
+	fps 30
+}
+
+$sequence "b_checkammo" {
+	$macro_idlesequence
+	addlayer "delta_ik_checkammo"
+	ikrule rhand touch "b_wpn" usesource
+	frames 0 81
 	fps 30
 }
 
 $sequence "b_holster" {
 	$macro_idlesequence
-	addlayer "delta_ik_holster"
-	frames 0 19
+	addlayer "delta_ik_holster"	
 	ikrule rhand touch "b_wpn" usesource
-	snap
+	frames 0 19
 	fps 30
 }
 
 $sequence "b_sprint" {
 	$macro_idlesequence
 	addlayer "delta_ik_sprint"
-	frames 0 26
 	ikrule rhand touch "b_wpn" usesource
-	snap
+	loop
+	frames 0 26
 	fps 30
 }
