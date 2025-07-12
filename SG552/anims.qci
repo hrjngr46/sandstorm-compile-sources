@@ -16,144 +16,6 @@ $weightlist "weights_boltback" {
 	"b_wpn_chargehandle" 1
 }
 
-$weightlist "weights_checkammo" {
-	"b_ch_l_clavical" 1
-	"ValveBiped.Bip01_L_Upperarm" 0
-	"ValveBiped.Bip01_L_Forearm" 0
-	"ValveBiped.Bip01_L_Hand" 0
-	"ValveBiped.Bip01_L_Finger12" 0
-	"ValveBiped.Bip01_L_Finger11" 0
-	"ValveBiped.Bip01_L_Finger1" 0
-	"ValveBiped.Bip01_L_Finger22" 0
-	"ValveBiped.Bip01_L_Finger21" 0
-	"ValveBiped.Bip01_L_Finger2" 0
-	"ValveBiped.Bip01_L_Finger32" 0
-	"ValveBiped.Bip01_L_Finger31" 0
-	"ValveBiped.Bip01_L_Finger3" 0
-	"ValveBiped.Bip01_L_Finger42" 0
-	"ValveBiped.Bip01_L_Finger41" 0
-	"ValveBiped.Bip01_L_Finger4" 0
-	"ValveBiped.Bip01_L_Finger02" 0
-	"ValveBiped.Bip01_L_Finger01" 0
-	"ValveBiped.Bip01_L_Finger0" 0
-	"b_root" 0
-	"b_wpn" 1
-	"b_wpn_eject" 0
-	"b_wpn_fireselect" 0
-	"b_wpn_magrelease" 0
-	"b_wpn_muzzle" 0
-	"b_wpn_optic" 0
-	"b_wpn_suppressor" 0
-	"b_wpn_suppressor_muzzle" 0
-	"b_wpn_trigger" 0
-	"ik_hand_wpn_l" 0
-	"ik_hand_wpn_r" 0
-	"b_wpn_laser" 0
-	"b_wpn_laser_beam" 0
-	"b_wpn_flash" 0
-	"b_wpn_flash_beam" 0
-	"b_wpn_bipod" 0
-	"b_wpn_bipod_base" 0
-	"b_wpn_bipod_base_r" 0
-	"b_wpn_bipod_base_l" 0
-	"Rag" 0
-	"b_wpn_mag" 0
-	"b_wpn_mag_b1" 0
-	"b_wpn_mag_b2" 0
-	"b_wpn_mag_follow" 0
-	"b_wpn_mag_b3" 0
-	"b_wpn_mag_b4" 0
-	"b_wpn_mag_b5" 0
-	"b_wpn_mag_b6" 0
-	"b_wpn_mag_b7" 0
-	"b_wpn_mag_b8" 0
-	"b_wpn_mag_b9" 0
-	"b_wpn_mag_b10" 0
-	"b_wpn_mag_b11" 0
-	"b_wpn_mag_b12" 0
-	"b_wpn_mag_b13" 0
-	"b_wpn_mag_b14" 0
-	"b_wpn_mag_b15" 0
-	"b_wpn_mag_b16" 0
-	"b_wpn_mag_b17" 0
-	"b_wpn_mag_b18" 0
-	"b_wpn_mag_b19" 0
-	"b_wpn_mag_b20" 0
-	"b_wpn_mag_b21" 0
-	"b_wpn_mag_b22" 0
-	"b_wpn_mag_b23" 0
-	"b_wpn_mag_b24" 0
-	"b_wpn_mag_b25" 0
-	"b_wpn_mag_b26" 0
-	"b_wpn_mag_b27" 0
-	"b_wpn_mag_b28" 0
-	"b_wpn_mag_b29" 0
-	"Lighter" 0
-	"MagExtended" 0
-	"MagStandard" 0
-	"b_wpn_bolt" 0
-	"b_wpn_foregrip" 0
-	"b_wpn_gl" 0
-	"b_wpn_gl_trigger" 0
-	"b_wpn_gl_round" 0
-	"b_wpn_gl_casing" 0
-	"b_wpn_gl_muzzle" 0
-	"b_wpn_bayonet" 0
-	"b_wpn_mag_2" 0
-	"MagStandard2" 0
-	"MagExtended2" 0
-	"b_wpn_chargehandle" 0
-	"b_wpn_spec_1" 0
-	"b_wpn_spec_2" 0
-	"Eject" 0
-	"Muzzle" 0
-	"A_AC_Rail_T" 0
-	"A_B_Suppressor" 0
-	"A_S_APCompM2" 0
-	"A_S_OKP" 0
-	"A_S_Kobra" 0
-	"A_S_Eotech" 0
-	"A_S_2xAPCompM2" 0
-	"A_S_C79" 0
-	"A_S_2xEotech" 0
-	"A_AC_Rail_B" 0
-	"A_FG_Main" 0
-	"A_AC_Rail_L" 0
-	"A_LS_Generic" 0
-	"A_AC_Rail_R" 0
-	"A_FL_Generic" 0
-	"Muzzle.001" 0
-	"Eject.001" 0
-	"A_AC_Rail_R.001" 0
-	"A_AC_Rail_L.001" 0
-	"A_S_Iron" 0
-	"A_AC_Rail_B.001" 0
-	"A_AC_Rail_T.001" 0
-	"A_S_APCompM2.001" 0
-	"A_FG_Main.001" 0
-	"A_B_Suppressor.001" 0
-	"A_FL_Generic.001" 0
-	"A_LS_Generic.001" 0
-	"A_S_C79.001" 0
-	"A_S_2xAPCompM2.001" 0
-	"A_S_Eotech.001" 0
-	"A_S_Kobra.001" 0
-	"A_S_PO" 0
-	"A_S_2xEotech.001" 0
-	"A_S_Scope" 0
-	"A_MK_Main" 0
-	"A_S_OKP.001" 0
-	"A_S_PKAS" 0
-	"KitSelect" 0
-	"LauncherSmoke" 0
-	"Link" 0
-	"A_S_PU" 0
-	"SightAlignment" 0
-	"A_S_FG_AFG" 0
-	"Root" 0
-	"Menu" 0
-}
-
 $weightlist "weights_sprint" {
 	"b_root" 0
 	"b_wpn" 1
@@ -487,6 +349,23 @@ $sequence "delta_ik_sprint" a_ik_sprint weightlist "weights_sprint"
 
 //Sequences
 
+$sequence "b_idle" {
+	$macro_idlesequence
+	activity "ACT_VM_IDLE" 1
+	ikrule rhand touch "b_wpn" usesource
+	ikrule lhand touch "b_wpn" usesource
+	fps 30
+}
+
+$sequence "e_idle" {
+	$macro_idlesequence
+	$macro_empty_bolt
+	activity "ACT_VM_IDLE_EMPTY" 1
+	ikrule rhand touch "b_wpn" usesource
+	ikrule lhand touch "b_wpn" usesource
+	fps 30
+}
+
 $sequence "reload_empty" {
 	"anims/AN_1P_SIG_B_Reload_Empty.smd"
 	activity "ACT_VM_RELOAD_EMPTY" 1
@@ -495,7 +374,7 @@ $sequence "reload_empty" {
 
 $sequence "b_fire_1" {
 	$macro_idlesequence
-	activity "ACT_VM_FIRE" 1
+	activity "ACT_VM_PRIMARYATTACK" 1
 	$macro_fire_bolt
 	$macro_fire_trigger
 	snap
@@ -508,7 +387,7 @@ $sequence "b_fire_1" {
 
 $sequence "b_fire_2" {
 	$macro_idlesequence
-	activity "ACT_VM_FIRE" 1
+	activity "ACT_VM_PRIMARYATTACK" 1
 	$macro_fire_bolt
 	$macro_fire_trigger
 	snap
@@ -521,7 +400,7 @@ $sequence "b_fire_2" {
 
 $sequence "b_fire_3" {
 	$macro_idlesequence
-	activity "ACT_VM_FIRE" 1
+	activity "ACT_VM_PRIMARYATTACK" 1
 	$macro_fire_bolt
 	$macro_fire_trigger
 	snap
@@ -534,7 +413,7 @@ $sequence "b_fire_3" {
 
 $sequence "i_fire_1" {
 	$macro_idlesequence
-	activity "ACT_VM_FIRE" 1
+	activity "ACT_VM_PRIMARYATTACK_1" 1
 	$macro_fire_bolt
 	$macro_fire_trigger
 	snap
@@ -547,7 +426,7 @@ $sequence "i_fire_1" {
 
 $sequence "i_fire_2" {
 	$macro_idlesequence
-	activity "ACT_VM_FIRE" 1
+	activity "ACT_VM_PRIMARYATTACK_1" 1
 	$macro_fire_bolt
 	$macro_fire_trigger
 	snap
@@ -560,7 +439,7 @@ $sequence "i_fire_2" {
 
 $sequence "i_fire_3" {
 	$macro_idlesequence
-	activity "ACT_VM_FIRE" 1
+	activity "ACT_VM_PRIMARYATTACK_1" 1
 	$macro_fire_bolt
 	$macro_fire_trigger
 	snap
@@ -573,7 +452,7 @@ $sequence "i_fire_3" {
 
 $sequence "b_dryfire" {
 	$macro_idlesequence
-	activity "ACT_VM_FIRE" 1
+	activity "ACT_VM_DRYFIRE" 1
 	$macro_empty_bolt
 	$macro_fire_trigger
 	snap
@@ -586,7 +465,7 @@ $sequence "b_dryfire" {
 
 $sequence "i_dryfire" {
 	$macro_idlesequence
-	activity "ACT_VM_FIRE" 1
+	activity "ACT_VM_PRIMARYATTACK_2" 1
 	$macro_empty_bolt
 	$macro_fire_trigger
 	snap
@@ -621,7 +500,7 @@ $sequence "b_holster" {
 
 $sequence "e_draw" {
 	$macro_idlesequence
-	activity "ACT_VM_DRAW" 1
+	activity "ACT_VM_DRAW_EMPTY" 1
 	$macro_empty_bolt
 	snap
 	addlayer "delta_ik_draw"
@@ -633,7 +512,7 @@ $sequence "e_draw" {
 
 $sequence "e_holster" {
 	$macro_idlesequence
-	activity "ACT_VM_HOLSTER" 1
+	activity "ACT_VM_HOLSTER_EMPTY" 1
 	$macro_empty_bolt
 	snap
 	addlayer "delta_ik_holster"
@@ -643,9 +522,21 @@ $sequence "e_holster" {
 	fps 30
 }
 
-$sequence "e_sprint" {
+$sequence "b_sprint" {
 	$macro_idlesequence
 	activity "ACT_VM_SPRINT" 1
+	$macro_empty_bolt
+	loop
+	addlayer "delta_ik_sprint"
+	frames 0 69
+	ikrule rhand touch "b_wpn" usesource
+	ikrule lhand touch "b_wpn" usesource
+	fps 30
+}
+
+$sequence "e_sprint" {
+	$macro_idlesequence
+	activity "ACT_VM_SPRINT_EMPTY" 1
 	$macro_empty_bolt
 	loop
 	addlayer "delta_ik_sprint"
