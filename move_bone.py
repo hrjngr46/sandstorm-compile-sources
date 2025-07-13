@@ -2,36 +2,36 @@ import bpy
 from mathutils import Vector
 
 def move_selected_bones_to_custom_location():
-    # Пользовательские настройки (измените эти значения!)
-    target_location = Vector((0, 0, 0))  # <- Впишите нужные координаты (X,Y,Z)
+    # Custom settings (change these values!)
+    target_location = Vector((0, 0, 0))  # <- Set desired coordinates (X, Y, Z)
     
     obj = bpy.context.object
     
-    # Проверки
+    # Checks
     if not obj or obj.type != 'ARMATURE':
-        print("Ошибка: выберите арматуру")
+        print("Error: Please select an Armature")
         return
     
     if not obj.animation_data or not obj.animation_data.action:
-        print("Ошибка: нет анимации")
+        print("Error: No animation data found")
         return
 
-    # Получаем выбранные кости в POSE mode
+    # Get selected bones in POSE mode
     selected_bones = [bone for bone in obj.pose.bones if bone.bone.select]
     
     if not selected_bones:
-        print("Ошибка: не выбрано ни одной кости!")
+        print("Error: No bones selected!")
         return
     
-    # Для каждой выбранной кости
+    # For each selected bone
     for bone in selected_bones:
-        # Получаем текущее мировое положение кости
+        # Get the bone's current world position
         current_world_pos = obj.matrix_world @ bone.matrix.translation
         
-        # Вычисляем смещение до целевой точки
+        # Calculate offset to the target point
         offset = target_location - current_world_pos
         
-        # Применяем к location-кривым
+        # Apply to location f-curves
         for fcurve in obj.animation_data.action.fcurves:
             if fcurve.data_path == f'pose.bones["{bone.name}"].location':
                 axis = fcurve.array_index
@@ -40,7 +40,7 @@ def move_selected_bones_to_custom_location():
                     kf.handle_left[1] += offset[axis]
                     kf.handle_right[1] += offset[axis]
     
-    print(f"Перенесено {len(selected_bones)} костей в координаты {target_location}")
+    print(f"Moved {len(selected_bones)} bones to coordinates {target_location}")
 
-# Запуск
+# Run
 move_selected_bones_to_custom_location()
