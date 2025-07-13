@@ -27,6 +27,11 @@ $sequence "delta_ik_iron_2" delta a_ik_iron_2 weightlist "weapon_only"
 $animation a_ik_iron_3 "F:\tools\sandstorm_source_files\release\animations\gen_pist\anims\an_1p_gen_pist_b_iron_fire3.smd"
 $sequence "delta_ik_iron_3" delta a_ik_iron_3 weightlist "weapon_only"
 
+//IK dryfire
+
+$animation a_ik_dryfire "F:\tools\sandstorm_source_files\release\animations\gen_pist\anims\an_1p_gen_pist_b_dryfire.smd"
+$sequence "delta_ik_dryfire" delta a_ik_dryfire weightlist "weapon_only"
+
 //IK darw/holster
 
 $sequence "delta_ik_draw" predelta {
@@ -174,6 +179,17 @@ $sequence "b_fire_3" {
 	fps 30
 }
 
+$sequence "b_dryfire" {
+	$macro_idlesequence
+	addlayer "delta_ik_dryfire"
+	addlayer "layer_trigger"
+	ikrule rhand touch "b_wpn" usesource
+	ikrule lhand touch "b_wpn" usesource
+	snap
+	frames 0 20
+	fps 30
+}
+
 $sequence "i_iron_1" {
 	$macro_idlesequence
 	addlayer "delta_ik_iron_1"
@@ -204,6 +220,17 @@ $sequence "i_iron_3" {
 	ikrule lhand touch "b_wpn" usesource
 	snap
 	frames 0 30
+	fps 30
+}
+
+$sequence "i_dryfire" {
+	$macro_idlesequence
+	addlayer "delta_ik_dryfire"
+	addlayer "layer_trigger"
+	ikrule rhand touch "b_wpn" usesource
+	ikrule lhand touch "b_wpn" usesource
+	snap
+	frames 0 20
 	fps 30
 }
 
