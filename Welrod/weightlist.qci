@@ -1,3 +1,13 @@
+$weightlist "trigger" {
+	"b_root" 0
+	"b_wpn" 0
+	"b_wpn_trigger" 1
+	"b_ch_r_finger_10" 1
+	"b_ch_r_finger_12" 0
+	"ValveBiped.Bip01_R_Finger11" 0
+	"ValveBiped.Bip01_R_Finger12" 0
+}
+
 $weightlist "weapon_only" {
 	"b_root" 0
 	"b_wpn" 1	

@@ -43,6 +43,13 @@ $sequence "delta_ik_checkammo" predelta {
 $animation a_ik_sprint "F:\tools\sandstorm_source_files\release\animations\gen_pist\anims\an_1p_gen_pist_m_sprint.smd" subtract "idle" 0
 $sequence "delta_ik_sprint" delta a_ik_sprint weightlist "sprint" loop fixuploop -1 1
 
+//Trigger
+
+$sequence "layer_trigger" {
+	"anims\AN_1P_Welrod_B_Fire_Trigger.smd"
+	weightlist "trigger"
+}
+
 $sequence "b_idle" {
 	$macro_idlesequence
 	ikrule rhand touch "b_wpn" usesource
@@ -86,6 +93,7 @@ $sequence "b_sprint" {
 $sequence "b_fire_1" {
 	$macro_idlesequence
 	addlayer "delta_ik_fire_1"
+	addlayer "layer_trigger"
 	ikrule rhand touch "b_wpn" usesource
 	ikrule lhand touch "b_wpn" usesource
 	snap
@@ -96,6 +104,7 @@ $sequence "b_fire_1" {
 $sequence "b_fire_2" {
 	$macro_idlesequence
 	addlayer "delta_ik_fire_2"
+	addlayer "layer_trigger"
 	ikrule rhand touch "b_wpn" usesource
 	ikrule lhand touch "b_wpn" usesource
 	snap
@@ -106,6 +115,7 @@ $sequence "b_fire_2" {
 $sequence "b_fire_3" {
 	$macro_idlesequence
 	addlayer "delta_ik_fire_3"
+	addlayer "layer_trigger"
 	ikrule rhand touch "b_wpn" usesource
 	ikrule lhand touch "b_wpn" usesource
 	snap
