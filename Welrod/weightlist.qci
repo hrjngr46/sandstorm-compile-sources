@@ -199,7 +199,7 @@ $weightlist "draw_holster" {
 	"ValveBiped.Bip01_R_UpperArm" 0
 }
 
-$weightlist "checkammo" {
+$weightlist "melee" {
 	"b_root" 0
 	"b_wpn" 1	
 	"b_wpn_foregrip" 0	
@@ -239,30 +239,12 @@ $weightlist "checkammo" {
 	"b_wpn_gripod_base" 0	
 	"b_wpn_gripod_base_r" 0	
 	"b_wpn_gripod_base_l" 0
-	"b_ch_middle" 0
-	"b_ch_spine1" 0
-	"b_ch_spine2" 0
-	"b_ch_l_clavical" 0
-	"b_ch_l_upperarm" 1
-	"b_ch_l_forearm" 1
-	"b_ch_l_hand" 1
-	"b_ch_l_finger_00" 0
-	"b_ch_l_finger_10" 0
-	"b_ch_l_finger_11" 0
-	"b_ch_l_finger_12" 0
-	"b_ch_l_finger_20" 0
-	"b_ch_l_finger_21" 0
-	"b_ch_l_finger_22" 0
-	"b_ch_l_finger_30" 0
-	"b_ch_l_finger_31" 0
-	"b_ch_l_finger_32" 0
-	"b_ch_l_finger_40" 0
-	"b_ch_l_finger_41" 0
-	"b_ch_l_finger_42" 0
-	"b_ch_r_clavical" 0
-	"b_ch_r_upperarm" 1
-	"b_ch_r_forearm" 1
+	"b_ch_r_clavical" 1
 	"b_ch_r_hand" 0
+	"b_ch_r_finger_10" 0
+	"b_ch_r_finger_11" 0
+	"b_ch_r_finger_12" 0
+	"b_ch_l_clavical" 1
 	"ValveBiped.Bip01_L_Finger12" 0
 	"ValveBiped.Bip01_L_Finger11" 0
 	"ValveBiped.Bip01_L_Finger1" 0
