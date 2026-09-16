@@ -157,7 +157,7 @@ $sequence "idle" {
 	ikrule lhand touch "b_wpn" usesource
 	loop
 	frames 0 160
-	fps 15
+	fps 30
 }
 
 $sequence "idle_empty" {
