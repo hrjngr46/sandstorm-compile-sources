@@ -1,0 +1,425 @@
+$weightlist "weapon" {
+	"b_root" 0
+	"b_camera" 1
+	"b_wpn" 1
+	"b_wpn_controller" 0
+}
+
+$weightlist "fire" {
+	"b_root" 0
+	"b_camera" 1
+	"b_wpn" 1
+	"b_wpn_controller" 0
+	"b_wpn_spec_2" 1
+	"b_wpn_slide" 1
+	"b_wpn_chargehandle" 1
+}
+
+$weightlist "sprint" {
+	"b_root" 0
+	"b_camera" 1
+	"b_wpn" 1
+	"b_wpn_controller" 0
+	"b_ch_l_upperarm" 1
+	"b_ch_r_upperarm" 1
+	"b_ch_l_forearm" 1
+	"b_ch_r_forearm" 1
+	"b_ch_l_hand" 0
+	"b_ch_r_hand" 0
+}
+
+$weightlist "trigger" {
+	"b_root" 0
+	"b_wpn_trigger" 1
+	"b_ch_r_finger_10" 1
+	"ValveBiped.Bip01_R_Finger1" 0
+	"ValveBiped.Bip01_R_Finger11" 0
+	"ValveBiped.Bip01_R_Finger12" 0
+}
+
+$weightlist "bolt" {
+	"b_root" 0
+	"b_wpn_bolt" 1
+}
+
+$definemacro macro_idlesequence \\
+"anims\AN_1P_VHS_B_Idle.smd" frames 1 1
+
+$sequence "idle_macro" {
+	$macro_idlesequence
+	hidden
+}
+
+//IK fire
+
+$animation ik_fire1 "anims\AN_1P_VHS_B_Fire01.smd"
+$sequence "delta_ik_fire1" delta ik_fire1 weightlist "fire" hidden
+
+$animation ik_fire2 "anims\AN_1P_VHS_B_Fire02.smd"
+$sequence "delta_ik_fire2" delta ik_fire2 weightlist "fire" hidden
+
+$animation ik_fire3 "anims\AN_1P_VHS_B_Fire03.smd"
+$sequence "delta_ik_fire3" delta ik_fire3 weightlist "fire" hidden
+
+//IK iron fire
+
+$animation ik_iron_fire1 "F:\tools\Sandstorm-Compile-Sources\generic\rifle\AN_1P_GEN_RIF_B_IRON_Fire.smd"
+$sequence "delta_ik_iron_fire1" delta ik_iron_fire1 weightlist "weapon" hidden
+
+$animation ik_iron_fire2 "F:\tools\Sandstorm-Compile-Sources\generic\rifle\AN_1P_GEN_RIF_B_IRON_Fire2.smd"
+$sequence "delta_ik_iron_fire2" delta ik_iron_fire2 weightlist "weapon" hidden
+
+$animation ik_iron_fire3 "F:\tools\Sandstorm-Compile-Sources\generic\rifle\AN_1P_GEN_RIF_B_IRON_Fire3.smd"
+$sequence "delta_ik_iron_fire3" delta ik_iron_fire3 weightlist "weapon" hidden
+
+//IK dryfire
+
+$animation ik_dryfire "F:\tools\Sandstorm-Compile-Sources\generic\rifle\AN_1P_GEN_RIF_B_Dryfire.smd"
+$sequence "delta_ik_dryfire" delta ik_dryfire weightlist "weapon" hidden
+
+$animation ik_iron_dryfire "F:\tools\Sandstorm-Compile-Sources\generic\rifle\AN_1P_GEN_RIF_B_IRON_Dryfire.smd"
+$sequence "delta_ik_iron_dryfire" delta ik_iron_dryfire weightlist "weapon" hidden
+
+//IK draw & holser
+
+$animation ik_draw "F:\tools\Sandstorm-Compile-Sources\generic\rifle\AN_1P_GEN_RIF_B_Draw.smd"
+$sequence "delta_ik_draw" delta ik_draw weightlist "weapon" hidden
+
+$animation ik_holster "F:\tools\Sandstorm-Compile-Sources\generic\rifle\AN_1P_GEN_RIF_B_Holster.smd"
+$sequence "delta_ik_holster" delta ik_holster weightlist "weapon" hidden
+
+//IK Fidget
+
+$animation ik_fidget "F:\tools\Sandstorm-Compile-Sources\generic\rifle\AN_1P_GEN_RIF_B_Fidget.smd"
+$sequence "delta_ik_fidget" delta ik_fidget weightlist "weapon" hidden
+
+//IK sprint
+
+$animation ik_sprint "F:\tools\Sandstorm-Compile-Sources\generic\rifle\AN_1P_GEN_RIF_B_Sprint.smd" subtract "idle_macro" 0
+$sequence "delta_ik_sprint" delta ik_sprint weightlist "sprint" loop fixuploop -1 1 hidden
+
+//IK bash
+
+$animation ik_bash "F:\tools\Sandstorm-Compile-Sources\generic\rifle\AN_1P_GEN_RIF_B_Melee_Muzzle.smd"
+$sequence "delta_ik_bash" delta ik_bash weightlist "weapon" hidden
+
+//Trigger & bolt macro
+
+$sequence "delta_trigger" delta {
+	anims/AN_1P_VHS_B_FireTrigger.smd
+	frames 0 30
+	hidden
+	weightlist "trigger"
+}
+
+$definemacro macro_trigger \\
+addlayer "delta_trigger"
+
+$sequence "delta_bolt" delta {
+	anims/AN_1P_VHS_B_FireBolt.smd
+	frames 0 10
+	hidden
+	weightlist "bolt"
+}
+
+$sequence "delta_boltback" delta {
+	anims/AN_1P_VHS_B_FireBolt.smd
+	frames 1 1
+	hidden
+	weightlist "bolt"
+}
+
+$definemacro macro_bolt \\
+blendlayer "delta_bolt" 0 1 10 10
+
+$definemacro macro_boltback \\
+addlayer "delta_boltback"
+
+//Sequences
+
+$sequence "idle" {
+	$macro_idlesequence
+	activity "ACT_VM_IDLE" 1
+	ikrule rhand touch "b_wpn" usesource
+	ikrule lhand touch "b_wpn" usesource
+	loop
+	fps 30
+}
+
+$sequence "idle_empty" {
+	$macro_idlesequence
+	$macro_boltback
+	$macro_boltback
+	activity "ACT_VM_IDLE_EMPTY" 1
+	ikrule rhand touch "b_wpn" usesource
+	ikrule lhand touch "b_wpn" usesource
+	loop
+	fps 30
+}
+
+$sequence "fidget" {
+	$macro_idlesequence
+	addlayer "delta_ik_fidget"
+	activity "ACT_VM_FIDGET" 1
+	ikrule rhand touch "b_wpn" usesource
+	ikrule lhand touch "b_wpn" usesource
+	frames 0 130
+	fps 30
+}
+
+$sequence "fidget_empty" {
+	$macro_idlesequence
+	$macro_boltback
+	addlayer "delta_ik_fidget"
+	activity "ACT_CROSSBOW_FIDGET_UNLOADED" 1
+	ikrule rhand touch "b_wpn" usesource
+	ikrule lhand touch "b_wpn" usesource
+	frames 0 130
+	fps 30
+}
+
+$sequence "sprint" {
+	$macro_idlesequence
+	addlayer "delta_ik_sprint"
+	activity "ACT_VM_SPRINT" 1
+	ikrule rhand touch "b_wpn" usesource
+	ikrule lhand touch "b_wpn" usesource
+	frames 0 68
+	loop
+	fps 50
+}
+
+$sequence "sprint_empty" {
+	$macro_idlesequence
+	$macro_boltback
+	addlayer "delta_ik_sprint"
+	activity "ACT_VM_SPRINT_EMPTY" 1
+	ikrule rhand touch "b_wpn" usesource
+	ikrule lhand touch "b_wpn" usesource
+	frames 0 68
+	loop
+	fps 50
+}
+
+$sequence "bash" {
+	$macro_idlesequence
+	addlayer "delta_ik_bash"
+	activity "ACT_VM_HITCENTER" 1
+	ikrule rhand touch "b_wpn" usesource
+	ikrule lhand touch "b_wpn" usesource
+	frames 0 45
+	fps 30
+}
+
+$sequence "bash_empty" {
+	$macro_idlesequence
+	$macro_boltback
+	addlayer "delta_ik_bash"
+	activity "ACT_VM_MISSCENTER" 1
+	ikrule rhand touch "b_wpn" usesource
+	ikrule lhand touch "b_wpn" usesource
+	frames 0 45
+	fps 30
+}
+
+$sequence "fire" {
+	$macro_idlesequence
+	$macro_trigger
+	$macro_bolt
+	addlayer "delta_ik_fire1"
+	activity "ACT_VM_PRIMARYATTACK" 1
+	ikrule rhand touch "b_wpn" usesource
+	ikrule lhand touch "b_wpn" usesource
+	frames 0 30
+	snap
+	fps 30
+}
+
+$sequence "fire2" {
+	$macro_idlesequence
+	$macro_trigger
+	$macro_bolt
+	addlayer "delta_ik_fire2"
+	activity "ACT_VM_PRIMARYATTACK" 1
+	ikrule rhand touch "b_wpn" usesource
+	ikrule lhand touch "b_wpn" usesource
+	frames 0 30
+	snap
+	fps 30
+}
+
+$sequence "fire3" {
+	$macro_idlesequence
+	$macro_trigger
+	$macro_bolt
+	addlayer "delta_ik_fire3"
+	activity "ACT_VM_PRIMARYATTACK" 1
+	ikrule rhand touch "b_wpn" usesource
+	ikrule lhand touch "b_wpn" usesource
+	frames 0 30
+	snap
+	fps 30
+}
+
+$sequence "fire_last" {
+	$macro_idlesequence
+	$macro_trigger
+	blendlayer "delta_boltback" 0 1 100 100
+	addlayer "delta_ik_fire3"
+	activity "ACT_VM_PRIMARYATTACK_EMPTY" 1
+	ikrule rhand touch "b_wpn" usesource
+	ikrule lhand touch "b_wpn" usesource
+	frames 0 30
+	snap
+	fps 30
+}
+
+$sequence "dryfire" {
+	$macro_idlesequence
+	$macro_trigger
+	$macro_boltback
+	addlayer "delta_ik_dryfire"
+	activity "ACT_VM_DRYFIRE" 1
+	ikrule rhand touch "b_wpn" usesource
+	ikrule lhand touch "b_wpn" usesource
+	frames 0 20
+	snap
+	fps 30
+}
+
+$sequence "iron_fire" {
+	$macro_idlesequence
+	$macro_trigger
+	$macro_bolt
+	addlayer "delta_ik_iron_fire1"
+	activity "ACT_VM_PRIMARYATTACK_1" 1
+	ikrule rhand touch "b_wpn" usesource
+	ikrule lhand touch "b_wpn" usesource
+	frames 0 30
+	snap
+	fps 30
+}
+
+$sequence "iron_fire2" {
+	$macro_idlesequence
+	$macro_trigger
+	$macro_bolt
+	addlayer "delta_ik_iron_fire2"
+	activity "ACT_VM_PRIMARYATTACK_1" 1
+	ikrule rhand touch "b_wpn" usesource
+	ikrule lhand touch "b_wpn" usesource
+	frames 0 30
+	snap
+	fps 30
+}
+
+$sequence "iron_fire3" {
+	$macro_idlesequence
+	$macro_trigger
+	$macro_bolt
+	addlayer "delta_ik_iron_fire3"
+	activity "ACT_VM_PRIMARYATTACK_1" 1
+	ikrule rhand touch "b_wpn" usesource
+	ikrule lhand touch "b_wpn" usesource
+	frames 0 30
+	snap
+	fps 30
+}
+
+$sequence "iron_fire_last" {
+	$macro_idlesequence
+	$macro_trigger
+	blendlayer "delta_boltback" 0 1 100 100
+	addlayer "delta_ik_iron_fire3"
+	activity "ACT_VM_PRIMARYATTACK_2" 1
+	ikrule rhand touch "b_wpn" usesource
+	ikrule lhand touch "b_wpn" usesource
+	frames 0 30
+	snap
+	fps 30
+}
+
+$sequence "iron_dryfire" {
+	$macro_idlesequence
+	$macro_trigger
+	$macro_boltback
+	addlayer "delta_ik_iron_dryfire"
+	activity "ACT_VM_PRIMARYATTACK_3" 1
+	ikrule rhand touch "b_wpn" usesource
+	ikrule lhand touch "b_wpn" usesource
+	frames 0 20
+	snap
+	fps 30
+}
+
+$sequence "draw" {
+	$macro_idlesequence
+	activity "ACT_VM_DRAW" 1
+	ikrule rhand touch "b_wpn" usesource
+	ikrule lhand touch "b_wpn" usesource
+	addlayer "delta_ik_draw"
+	frames 0 40
+	fps 30
+}
+
+$sequence "draw_empty" {
+	$macro_idlesequence
+	$macro_boltback
+	activity "ACT_VM_DRAW_EMPTY" 1
+	ikrule rhand touch "b_wpn" usesource
+	ikrule lhand touch "b_wpn" usesource
+	addlayer "delta_ik_draw"
+	frames 0 40
+	fps 30
+}
+
+$sequence "holster" {
+	$macro_idlesequence
+	activity "ACT_VM_HOLSTER" 1
+	ikrule rhand touch "b_wpn" usesource
+	ikrule lhand touch "b_wpn" usesource
+	addlayer "delta_ik_holster"
+	frames 0 20
+	fps 30
+}
+
+$sequence "holster_empty" {
+	$macro_idlesequence
+	$macro_boltback
+	activity "ACT_VM_HOLSTER_EMPTY" 1
+	ikrule rhand touch "b_wpn" usesource
+	ikrule lhand touch "b_wpn" usesource
+	addlayer "delta_ik_holster"
+	frames 0 20
+	fps 30
+}
+
+$sequence "ready" {
+	anims/AN_1P_VHS_B_Ready.smd
+	activity "ACT_VM_DRAW_DEPLOYED" 1
+	fps 30
+}
+
+$sequence "reload" {
+	anims/AN_1P_VHS_B_Reload.smd
+	activity "ACT_VM_RELOAD" 1
+	fps 30
+}
+
+$sequence "reload_speed" {
+	anims/AN_1P_VHS_B_Reload_Speed.smd
+	activity "ACT_VM_RELOAD_SPEED" 1
+	fps 30
+}
+
+$sequence "reload_empty" {
+	anims/AN_1P_VHS_B_Reload_Empty.smd
+	activity "ACT_VM_RELOAD_EMPTY" 1
+	fps 30
+}
+
+$sequence "reload_empty_speed" {
+	anims/AN_1P_VHS_B_Reload_Empty_Speed.smd
+	activity "ACT_VM_RELOAD_EMPTY_SPEED" 1
+	fps 30
+}
