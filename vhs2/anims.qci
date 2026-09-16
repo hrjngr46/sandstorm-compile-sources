@@ -29,6 +29,10 @@ $weightlist "sprint" {
 	"b_ch_r_forearm" 1
 	"b_ch_l_hand" 0
 	"b_ch_r_hand" 0
+	"b_ch_r_finger_10" 1
+	"ValveBiped.Bip01_R_Finger1" 0
+	"ValveBiped.Bip01_R_Finger11" 0
+	"ValveBiped.Bip01_R_Finger12" 0	
 }
 
 $weightlist "trigger" {
