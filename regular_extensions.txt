@@ -1,0 +1,7 @@
+//after quotes
+find what: ("[^"]*")[^"]*$
+replace with: $1
+
+//before quotes
+find what: ^[^"]*
+replace with: $bonemerge
