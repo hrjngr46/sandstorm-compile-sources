@@ -1,6 +1,6 @@
 $include "F:\tools\Sandstorm-Compile-Sources\sandstorm_hand_ik.qci"
 
-$include "F:\tools\sandstorm_source_files\unreal_scale.qci"
+$include "F:\tools\Sandstorm-Compile-Sources\unreal_scale.qci"
 
 $modelname "weapons\vhs_product.mdl"
 

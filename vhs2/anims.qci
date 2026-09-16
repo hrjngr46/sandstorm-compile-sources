@@ -1,3 +1,6 @@
+//b_wpn_controller is an extra bone for shorter weightlists, child of b_wpn
+//valvebiped bones are not supposed to be in weightlists for deltas, so if they're fuckedup, set 0 for them
+
 $weightlist "weapon" {
 	"b_root" 0
 	"b_camera" 1
