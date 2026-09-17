@@ -163,7 +163,6 @@ $sequence "idle" {
 $sequence "idle_empty" {
 	$macro_idlesequence
 	$macro_boltback
-	$macro_boltback
 	addlayer "delta_ik_breath"
 	activity "ACT_VM_IDLE_EMPTY" 1
 	ikrule rhand touch "b_wpn" usesource
