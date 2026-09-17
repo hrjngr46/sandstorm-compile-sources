@@ -2,6 +2,8 @@ $include "F:\tools\Sandstorm-Compile-Sources\sandstorm_hand_ik.qci"
 
 $include "F:\tools\Sandstorm-Compile-Sources\unreal_scale.qci"
 
+$maxverts 999999
+
 $modelname "weapons\vhs_product.mdl"
 
 $model "weapon" "SKM_1P_VHS.smd"
