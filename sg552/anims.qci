@@ -8,6 +8,37 @@ $weightlist "weapon" {
 	"b_wpn_controller" 0
 }
 
+$weightlist "inspect" {
+	"b_root" 0
+	"b_camera" 1
+	"b_wpn" 1
+	"b_wpn_controller" 0
+	"b_ch_r_finger_00" 1
+	"b_ch_r_finger_10" 1
+	"ValveBiped.Bip01_R_Finger1" 0
+	"ValveBiped.Bip01_R_Finger11" 0
+	"ValveBiped.Bip01_R_Finger12" 0
+	"ValveBiped.Bip01_R_Finger0" 0
+	"ValveBiped.Bip01_R_Finger01" 0
+	"ValveBiped.Bip01_R_Finger02" 0
+	"b_ch_l_finger_10" 1
+	"b_ch_l_finger_20" 1
+	"b_ch_l_finger_30" 1
+	"b_ch_l_finger_40" 1
+	"ValveBiped.Bip01_L_Finger1" 0
+	"ValveBiped.Bip01_L_Finger11" 0
+	"ValveBiped.Bip01_L_Finger12" 0
+	"ValveBiped.Bip01_L_Finger2" 0
+	"ValveBiped.Bip01_L_Finger21" 0
+	"ValveBiped.Bip01_L_Finger22" 0
+	"ValveBiped.Bip01_L_Finger3" 0
+	"ValveBiped.Bip01_L_Finger31" 0
+	"ValveBiped.Bip01_L_Finger32" 0
+	"ValveBiped.Bip01_L_Finger4" 0
+	"ValveBiped.Bip01_L_Finger41" 0
+	"ValveBiped.Bip01_L_Finger42" 0
+}
+
 $weightlist "fire" {
 	"b_root" 0
 	"b_camera" 1
@@ -95,8 +126,8 @@ $sequence "delta_ik_holster" delta ik_holster weightlist "weapon" hidden
 
 //IK Fidget
 
-$animation ik_fidget "F:\tools\Sandstorm-Compile-Sources\generic\rifle\AN_1P_GEN_RIF_B_Fidget.smd"
-$sequence "delta_ik_fidget" delta ik_fidget weightlist "weapon" hidden
+$animation ik_fidget "F:\tools\Sandstorm-Compile-Sources\generic\AN_1P_Uzi_B_Idle_InspectWeapon.smd"
+$sequence "delta_ik_fidget" delta ik_fidget weightlist "inspect" hidden
 
 //IK sprint
 
@@ -176,7 +207,7 @@ $sequence "fidget" {
 	activity "ACT_VM_FIDGET" 1
 	ikrule rhand touch "b_wpn" usesource
 	ikrule lhand touch "b_wpn" usesource
-	frames 0 130
+	frames 0 177
 	fps 30
 }
 
@@ -187,7 +218,7 @@ $sequence "fidget_empty" {
 	activity "ACT_CROSSBOW_FIDGET_UNLOADED" 1
 	ikrule rhand touch "b_wpn" usesource
 	ikrule lhand touch "b_wpn" usesource
-	frames 0 130
+	frames 0 177
 	fps 30
 }
 
