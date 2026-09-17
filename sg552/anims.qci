@@ -1,0 +1,51 @@
+//b_wpn_controller is an extra bone for shorter weightlists, child of b_wpn
+//valvebiped bones are not supposed to be in weightlists for deltas, so if they're fuckedup, set 0 for them
+
+$definemacro macro_idlesequence \\
+"anims\AN_1P_SIG_B_Idle.smd" frames 1 1
+
+$sequence "idle_macro" {
+	$macro_idlesequence
+	hidden
+}
+
+$sequence "idle" {
+	$macro_idlesequence
+	activity "ACT_VM_IDLE" 1
+//	addlayer "delta_ik_breath"
+	ikrule rhand touch "b_wpn" usesource
+	ikrule lhand touch "b_wpn" usesource
+	loop
+//	frames 0 160
+	fps 30
+}
+
+$sequence "ready" {
+	anims/AN_1P_SIG_B_Ready.smd
+	activity "ACT_VM_DRAW_DEPLOYED" 1
+	fps 30
+}
+
+$sequence "reload" {
+	anims/AN_1P_SIG_B_Reload.smd
+	activity "ACT_VM_RELOAD" 1
+	fps 30
+}
+
+$sequence "reload_speed" {
+	anims/AN_1P_SIG_B_Reload_Speed.smd
+	activity "ACT_VM_RELOAD_SPEED" 1
+	fps 30
+}
+
+$sequence "reload_empty" {
+	anims/AN_1P_SIG_B_Reload_Empty.smd
+	activity "ACT_VM_RELOAD_EMPTY" 1
+	fps 30
+}
+
+$sequence "reload_empty_speed" {
+	anims/AN_1P_SIG_B_Reload_Empty_Speed.smd
+	activity "ACT_VM_RELOAD_EMPTY_SPEED" 1
+	fps 30
+}
