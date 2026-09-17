@@ -123,7 +123,7 @@ $sequence "delta_trigger" delta {
 }
 
 $definemacro macro_trigger \\
-blendlayer "delta_trigger" 0 1 10 10
+blendlayer "delta_trigger" 0 1 5 5
 
 $sequence "delta_bolt" delta {
 	anims/AN_1P_SIG_B_FireBolt.smd
