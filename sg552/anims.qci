@@ -98,6 +98,9 @@ $sequence "delta_ik_holster" delta ik_holster weightlist "weapon" hidden
 $animation ik_fidget "F:\tools\Sandstorm-Compile-Sources\generic\rifle\AN_1P_GEN_RIF_B_Fidget.smd"
 $sequence "delta_ik_fidget" delta ik_fidget weightlist "weapon" hidden
 
+$animation ik_fidget_2 "F:\tools\Sandstorm-Compile-Sources\generic\rifle\AN_1P_GEN_RIF_B_Fidget2.smd"
+$sequence "delta_ik_fidget_2" delta ik_fidget_2 weightlist "weapon" hidden
+
 //IK sprint
 
 $animation ik_sprint "F:\tools\Sandstorm-Compile-Sources\generic\rifle\AN_1P_GEN_RIF_B_Sprint.smd" subtract "idle_macro" 0
@@ -123,7 +126,7 @@ $sequence "delta_trigger" delta {
 }
 
 $definemacro macro_trigger \\
-blendlayer "delta_trigger" 0 1 5 5
+blendlayer "delta_trigger" 0 1 10 10
 
 $sequence "delta_bolt" delta {
 	anims/AN_1P_SIG_B_FireBolt.smd
@@ -149,7 +152,7 @@ addlayer "delta_boltback"
 
 $sequence "idle" {
 	$macro_idlesequence
-	activity "ACT_VM_IDLE" 1
+	activity "ACT_VM_IDLE" 10
 	addlayer "delta_ik_breath"
 	ikrule rhand touch "b_wpn" usesource
 	ikrule lhand touch "b_wpn" usesource
@@ -162,7 +165,7 @@ $sequence "idle_empty" {
 	$macro_idlesequence
 	$macro_boltback
 	addlayer "delta_ik_breath"
-	activity "ACT_VM_IDLE_EMPTY" 1
+	activity "ACT_VM_IDLE_EMPTY" 10
 	ikrule rhand touch "b_wpn" usesource
 	ikrule lhand touch "b_wpn" usesource
 	loop
@@ -188,6 +191,27 @@ $sequence "fidget_empty" {
 	ikrule rhand touch "b_wpn" usesource
 	ikrule lhand touch "b_wpn" usesource
 	frames 0 130
+	fps 30
+}
+
+$sequence "idle2" {
+	$macro_idlesequence
+	addlayer "delta_ik_fidget_2"
+	activity "ACT_VM_IDLE" 1
+	ikrule rhand touch "b_wpn" usesource
+	ikrule lhand touch "b_wpn" usesource
+	frames 0 64
+	fps 30
+}
+
+$sequence "idle2_empty" {
+	$macro_idlesequence
+	$macro_boltback
+	addlayer "delta_ik_fidget_2"
+	activity "ACT_VM_IDLE_EMPTY" 1
+	ikrule rhand touch "b_wpn" usesource
+	ikrule lhand touch "b_wpn" usesource
+	frames 0 64
 	fps 30
 }
 
