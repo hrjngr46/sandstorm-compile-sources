@@ -23,6 +23,7 @@ $weightlist "sprint" {
 	"b_camera" 1
 	"b_wpn" 1
 	"b_wpn_controller" 0
+	"b_ch_r_clavical" 1
 	"b_ch_l_upperarm" 1
 	"b_ch_r_upperarm" 1
 	"b_ch_l_forearm" 1
