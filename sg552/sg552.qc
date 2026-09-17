@@ -8,6 +8,11 @@ $modelname "weapons\c_sg552.mdl"
 
 $model "weapon" "SKM_1P_SG552.smd"
 
+$bodygroup "sight"
+{
+	studio "SKM_1P_SG552_Sight.smd"
+	blank
+}
 $bodygroup "mag"
 {
 	studio "SKM_1P_SG552_Magazine_20.smd"
