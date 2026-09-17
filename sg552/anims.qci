@@ -308,7 +308,7 @@ $sequence "iron_fire" {
 	activity "ACT_VM_PRIMARYATTACK_1" 1
 	ikrule rhand touch "b_wpn" usesource
 	ikrule lhand touch "b_wpn" usesource
-	frames 0 40
+	frames 0 30
 	snap
 	fps 30
 }
@@ -321,7 +321,7 @@ $sequence "iron_fire2" {
 	activity "ACT_VM_PRIMARYATTACK_1" 1
 	ikrule rhand touch "b_wpn" usesource
 	ikrule lhand touch "b_wpn" usesource
-	frames 0 40
+	frames 0 30
 	snap
 	fps 30
 }
@@ -334,7 +334,7 @@ $sequence "iron_fire3" {
 	activity "ACT_VM_PRIMARYATTACK_1" 1
 	ikrule rhand touch "b_wpn" usesource
 	ikrule lhand touch "b_wpn" usesource
-	frames 0 40
+	frames 0 30
 	snap
 	fps 30
 }
@@ -347,7 +347,7 @@ $sequence "iron_fire_last" {
 	activity "ACT_VM_PRIMARYATTACK_2" 1
 	ikrule rhand touch "b_wpn" usesource
 	ikrule lhand touch "b_wpn" usesource
-	frames 0 40
+	frames 0 30
 	snap
 	fps 30
 }
