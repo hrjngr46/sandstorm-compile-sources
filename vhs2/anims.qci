@@ -101,6 +101,12 @@ $sequence "delta_ik_holster" delta ik_holster weightlist "weapon" hidden
 $animation ik_fidget "F:\tools\Sandstorm-Compile-Sources\generic\rifle\AN_1P_GEN_RIF_B_Fidget.smd"
 $sequence "delta_ik_fidget" delta ik_fidget weightlist "weapon" hidden
 
+$animation ik_fidget_2 "F:\tools\Sandstorm-Compile-Sources\generic\rifle\AN_1P_GEN_RIF_B_Fidget2.smd"
+$sequence "delta_ik_fidget_2" delta ik_fidget_2 weightlist "weapon" hidden
+
+$animation ik_fidget_3 "F:\tools\Sandstorm-Compile-Sources\generic\rifle\AN_1P_GEN_RIF_B_Fidget3.smd"
+$sequence "delta_ik_fidget_3" delta ik_fidget_3 weightlist "weapon" hidden
+
 //IK sprint
 
 $animation ik_sprint "F:\tools\Sandstorm-Compile-Sources\generic\rifle\AN_1P_GEN_RIF_B_Sprint.smd" subtract "idle_macro" 0
@@ -152,7 +158,7 @@ addlayer "delta_boltback"
 
 $sequence "idle" {
 	$macro_idlesequence
-	activity "ACT_VM_IDLE" 1
+	activity "ACT_VM_IDLE" 10
 	addlayer "delta_ik_breath"
 	ikrule rhand touch "b_wpn" usesource
 	ikrule lhand touch "b_wpn" usesource
@@ -165,7 +171,7 @@ $sequence "idle_empty" {
 	$macro_idlesequence
 	$macro_boltback
 	addlayer "delta_ik_breath"
-	activity "ACT_VM_IDLE_EMPTY" 1
+	activity "ACT_VM_IDLE_EMPTY" 10
 	ikrule rhand touch "b_wpn" usesource
 	ikrule lhand touch "b_wpn" usesource
 	loop
@@ -191,6 +197,48 @@ $sequence "fidget_empty" {
 	ikrule rhand touch "b_wpn" usesource
 	ikrule lhand touch "b_wpn" usesource
 	frames 0 130
+	fps 30
+}
+
+$sequence "idle_fidget" {
+	$macro_idlesequence
+	addlayer "delta_ik_fidget_2"
+	activity "ACT_VM_IDLE" 1
+	ikrule rhand touch "b_wpn" usesource
+	ikrule lhand touch "b_wpn" usesource
+	frames 0 64
+	fps 30
+}
+
+$sequence "idle_fidget_empty" {
+	$macro_idlesequence
+	$macro_boltback
+	addlayer "delta_ik_fidget_2"
+	activity "ACT_VM_IDLE_EMPTY" 1
+	ikrule rhand touch "b_wpn" usesource
+	ikrule lhand touch "b_wpn" usesource
+	frames 0 64
+	fps 30
+}
+
+$sequence "idle_fidget_alt" {
+	$macro_idlesequence
+	addlayer "delta_ik_fidget_3"
+	activity "ACT_VM_IDLE" 1
+	ikrule rhand touch "b_wpn" usesource
+	ikrule lhand touch "b_wpn" usesource
+	frames 0 64
+	fps 30
+}
+
+$sequence "idle_fidget_alt_empty" {
+	$macro_idlesequence
+	$macro_boltback
+	addlayer "delta_ik_fidget_3"
+	activity "ACT_VM_IDLE_EMPTY" 1
+	ikrule rhand touch "b_wpn" usesource
+	ikrule lhand touch "b_wpn" usesource
+	frames 0 64
 	fps 30
 }
 
@@ -437,5 +485,15 @@ $sequence "reload_empty" {
 $sequence "reload_empty_speed" {
 	anims/AN_1P_VHS_B_Reload_Empty_Speed.smd
 	activity "ACT_VM_RELOAD_EMPTY_SPEED" 1
+	fps 30
+}
+
+$sequence "semi_auto" {
+	anims/AN_1P_VHS_B_FS_SemiAuto.smd
+	fps 30
+}
+
+$sequence "auto_semi" {
+	anims/AN_1P_VHS_B_FS_AutoSemi.smd
 	fps 30
 }
