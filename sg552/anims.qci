@@ -461,3 +461,18 @@ $sequence "reload_empty_speed" {
 	activity "ACT_VM_RELOAD_EMPTY_SPEED" 1
 	fps 30
 }
+
+$sequence "semi_auto" {
+	anims/AN_1P_SIG_B_FS_SemiAuto.smd
+	fps 30
+}
+
+$sequence "auto_burst" {
+	anims/AN_1P_SIG_B_FS_AutoBurst.smd
+	fps 30
+}
+
+$sequence "burst_semi" {
+	anims/AN_1P_SIG_B_FS_BurstSemi.smd
+	fps 30
+}
