@@ -48,12 +48,51 @@ $weightlist "bolt" {
 	"b_wpn_chargehandle" 1
 }
 
+$weightlist "fireselect" {
+	"b_root" 0
+	"b_wpn_fireselect" 1
+}
+
+$weightlist "foregrip" {
+	"b_root" 0
+	"b_ch_l_upperarm" 1
+}
+
 $definemacro macro_idlesequence \\
 "anims\AN_1P_SIG_B_Idle.smd" frames 1 1
 
 $sequence "idle_macro" {
 	$macro_idlesequence
 	hidden
+}
+
+//Poseparameters
+$poseparameter "breath_scale" 0 1
+$poseparameter "boltback_scale" 0 1
+$poseparameter "auto_burst" 0 1
+$poseparameter "burst_semi" 0 1
+$poseparameter "foregrip" 0 1
+
+$sequence "auto_burst_pose" {
+	anims/AN_1P_SIG_B_FS_AutoBurst.smd
+	frames 27 27
+	hidden
+	weightlist "fireselect"
+}
+
+$sequence "burst_semi_pose" {
+	anims/AN_1P_SIG_B_FS_BurstSemi.smd
+	frames 27 27
+	hidden
+	weightlist "fireselect"
+}
+
+$sequence "foregrip_pose" {
+	anims/AN_1P_SIG_FG_Reload.smd
+	frames 0 0
+	hidden
+	ikrule lhand touch "b_wpn" usesource
+	weightlist "foregrip"
 }
 
 //IK fire
@@ -117,7 +156,6 @@ $sequence "delta_ik_bash" delta ik_bash weightlist "weapon" hidden
 
 //IK breathing
 
-$poseparameter "breath_scale" 0 1
 $animation ik_breath "F:\tools\Sandstorm-Compile-Sources\generic\rifle\AN_1P_GEN_RIF_B_Breathing_01.smd"
 $sequence "delta_ik_breath" delta ik_breath weightlist "weapon" hidden
 
@@ -140,7 +178,6 @@ $sequence "delta_bolt" delta {
 	weightlist "bolt"
 }
 
-$poseparameter "boltback_scale" 0 1
 $sequence "delta_boltback" delta {
 	anims/AN_1P_SIG_B_FireBolt.smd
 	frames 1 1
@@ -171,6 +208,9 @@ $sequence "idle_empty" {
 	$macro_idlesequence
 	blendlayer "delta_ik_breath" 0 1 2 3 poseparameter "breath_scale"
 	blendlayer "delta_boltback" 0 1 2 3 poseparameter "boltback_scale"
+	blendlayer "auto_burst_pose" 0 1 2 3 poseparameter "auto_burst"
+	blendlayer "burst_semi_pose" 0 1 2 3 poseparameter "burst_semi"
+	blendlayer "foregrip_pose" 0 1 2 3 poseparameter "foregrip"
 	activity "ACT_VM_IDLE_EMPTY" 10
 	ikrule rhand touch "b_wpn" usesource
 	ikrule lhand touch "b_wpn" usesource
