@@ -24,7 +24,7 @@ $cdmaterials "models/weapons/sandstorm_reloaded"
 
 $include "bones.qci"
 
-$include "anims_poseparametertest.qci"
+$include "anims.qci"
 
 $attachment "camera" "b_camera" 0 0 0 rotate 0 -90 0
 $attachment "shell" "b_wpn_eject" 0 0 0 rotate 0 0 0
