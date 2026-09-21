@@ -11,6 +11,11 @@ $bodygroup "grip"
 	studio "SKM_1P_Grip01_DEagle.smd"
 }
 
+$bodygroup "mag"
+{
+	studio "SKM_1P_DEagle_Mag.smd"
+}
+
 $model "weapon" "SKM_1P_DEagle.smd"
 
 $cdmaterials "models/weapons/sandstorm_reloaded"
