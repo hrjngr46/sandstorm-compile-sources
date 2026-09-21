@@ -1,0 +1,173 @@
+//b_wpn_controller is an extra bone for shorter weightlists, child of b_wpn
+//valvebiped bones are not supposed to be in weightlists for deltas, so if they're fuckedup, set 0 for them
+
+$weightlist "weapon" {
+	"b_root" 0
+	"b_camera" 1
+	"b_wpn" 1
+	"b_wpn_controller" 0
+}
+
+$weightlist "bolt" {
+	"b_root" 0
+	"b_wpn_slide" 1
+}
+
+$weightlist "trigger" {
+	"b_root" 0
+	"b_wpn_trigger" 1
+	"b_ch_r_finger_10" 1
+	"ValveBiped.Bip01_R_Finger1" 0
+	"ValveBiped.Bip01_R_Finger11" 0
+	"ValveBiped.Bip01_R_Finger12" 0
+}
+
+$definemacro macro_idlesequence \\
+"anims\AN_1P_DEagle_B_Idle.smd" frames 1 1
+
+$sequence "idle_macro" {
+	$macro_idlesequence
+	hidden
+}
+
+//IK fire
+
+$animation ik_fire1 "anims\AN_1P_DEagle_B_Fire1.smd"
+$sequence "delta_ik_fire1" delta ik_fire1 weightlist "weapon" hidden
+
+$animation ik_fire2 "anims\AN_1P_DEagle_B_Fire2.smd"
+$sequence "delta_ik_fire2" delta ik_fire2 weightlist "weapon" hidden
+
+$animation ik_fire3 "anims\AN_1P_DEagle_B_Fire3.smd"
+$sequence "delta_ik_fire3" delta ik_fire3 weightlist "weapon" hidden
+
+//IK breathing
+
+$animation ik_breath "F:\tools\Sandstorm-Compile-Sources\generic\rifle\AN_1P_GEN_RIF_B_Breathing_01.smd"
+$sequence "delta_ik_breath" delta ik_breath weightlist "weapon" hidden
+
+//Trigger & bolt macro
+
+$sequence "delta_trigger" delta {
+	F:\tools\Sandstorm-Compile-Sources\m9\anims\AN_1P_M9_B_Fire_Trigger.smd
+	frames 0 10
+	hidden
+	weightlist "trigger"
+}
+
+$definemacro macro_trigger \\
+blendlayer "delta_trigger" 0 1 10 10
+
+$sequence "delta_bolt" delta {
+	anims/AN_1P_DEagle_B_Idle_Empty.smd
+	frames 0 4
+	hidden
+	weightlist "bolt"
+}
+
+$sequence "delta_boltback" delta {
+	anims/AN_1P_DEagle_B_Idle_Empty.smd
+	frames 1 1
+	hidden
+	weightlist "bolt"
+}
+
+$definemacro macro_bolt \\
+blendlayer "delta_bolt" 0 1 2 4
+
+$definemacro macro_boltback \\
+addlayer "delta_boltback"
+
+//Sequences
+
+$sequence "idle" {
+	$macro_idlesequence
+	activity "ACT_VM_IDLE" 10
+	addlayer "delta_ik_breath"
+	ikrule rhand touch "b_wpn" usesource
+	ikrule lhand touch "b_wpn" usesource
+	loop
+	frames 0 160
+	fps 30
+}
+
+$sequence "idle_empty" {
+	$macro_idlesequence
+	$macro_boltback
+	activity "ACT_VM_IDLE_EMPTY" 10
+	addlayer "delta_ik_breath"
+	ikrule rhand touch "b_wpn" usesource
+	ikrule lhand touch "b_wpn" usesource
+	loop
+	frames 0 160
+	fps 30
+}
+
+$sequence "fire" {
+	$macro_idlesequence
+	$macro_bolt
+	$macro_trigger
+	addlayer "delta_ik_fire1"
+	activity "ACT_VM_PRIMARYATTACK" 1
+	ikrule rhand touch "b_wpn" usesource
+	ikrule lhand touch "b_wpn" usesource
+	frames 0 40
+	snap
+	fps 30
+}
+
+$sequence "fire2" {
+	$macro_idlesequence
+	$macro_bolt
+	$macro_trigger
+	addlayer "delta_ik_fire2"
+	activity "ACT_VM_PRIMARYATTACK" 1
+	ikrule rhand touch "b_wpn" usesource
+	ikrule lhand touch "b_wpn" usesource
+	frames 0 40
+	snap
+	fps 30
+}
+
+$sequence "fire3" {
+	$macro_idlesequence
+	$macro_bolt
+	$macro_trigger
+	addlayer "delta_ik_fire3"
+	activity "ACT_VM_PRIMARYATTACK" 1
+	ikrule rhand touch "b_wpn" usesource
+	ikrule lhand touch "b_wpn" usesource
+	frames 0 40
+	snap
+	fps 30
+}
+
+$sequence "ready" {
+	anims/AN_1P_DEagle_B_Ready.smd
+	activity "ACT_VM_DRAW_DEPLOYED" 1
+	fps 30
+}
+
+$sequence "reload" {
+	anims/AN_1P_DEagle_B_Reload.smd
+	activity "ACT_VM_RELOAD" 1
+	fps 30
+}
+
+$sequence "reload_speed" {
+	anims/AN_1P_DEagle_B_Reload_Speed.smd
+	activity "ACT_VM_RELOAD_SPEED" 1
+	fps 30
+}
+
+$sequence "reload_empty" {
+	anims/AN_1P_DEagle_B_Reload_Empty.smd
+	activity "ACT_VM_RELOAD_EMPTY" 1
+	fps 30
+}
+
+$sequence "reload_empty_speed" {
+	anims/AN_1P_DEagle_B_Reload_Empty_Speed.smd
+	activity "ACT_VM_RELOAD_EMPTY_SPEED" 1
+	fps 30
+}
