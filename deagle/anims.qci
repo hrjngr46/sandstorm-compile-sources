@@ -22,6 +22,33 @@ $weightlist "trigger" {
 	"ValveBiped.Bip01_R_Finger12" 0
 }
 
+$weightlist "drawholster" {
+	"b_root" 0
+	"b_wpn" 1
+	"b_camera" 1
+	"b_wpn_controller" 0
+	"b_ch_l_upperarm" 1
+	"b_ch_r_finger_00" 1
+	"ValveBiped.Bip01_L_Finger12" 0
+	"ValveBiped.Bip01_L_Finger11" 0
+	"ValveBiped.Bip01_L_Finger1" 0
+	"ValveBiped.Bip01_L_Finger22" 0
+	"ValveBiped.Bip01_L_Finger21" 0
+	"ValveBiped.Bip01_L_Finger2" 0
+	"ValveBiped.Bip01_L_Finger32" 0
+	"ValveBiped.Bip01_L_Finger31" 0
+	"ValveBiped.Bip01_L_Finger3" 0
+	"ValveBiped.Bip01_L_Finger42" 0
+	"ValveBiped.Bip01_L_Finger41" 0
+	"ValveBiped.Bip01_L_Finger4" 0
+	"ValveBiped.Bip01_L_Finger02" 0
+	"ValveBiped.Bip01_L_Finger01" 0
+	"ValveBiped.Bip01_L_Finger0" 0
+	"ValveBiped.Bip01_L_Hand" 0
+	"ValveBiped.Bip01_L_Forearm" 0
+	"ValveBiped.Bip01_L_UpperArm" 0
+}
+
 $definemacro macro_idlesequence \\
 "anims\AN_1P_DEagle_B_Idle.smd" frames 1 1
 
@@ -40,6 +67,14 @@ $sequence "delta_ik_fire2" delta ik_fire2 weightlist "weapon" hidden
 
 $animation ik_fire3 "anims\AN_1P_DEagle_B_Fire3.smd"
 $sequence "delta_ik_fire3" delta ik_fire3 weightlist "weapon" hidden
+
+//IK draw & holser
+
+$animation ik_draw "F:\tools\Sandstorm-Compile-Sources\generic\pistol\AN_1P_GEN_PIST_B_Draw.smd"
+$sequence "delta_ik_draw" predelta ik_draw weightlist "drawholster" hidden
+
+$animation ik_holster "F:\tools\Sandstorm-Compile-Sources\generic\pistol\AN_1P_GEN_PIST_B_Holster.smd"
+$sequence "delta_ik_holster" predelta ik_holster weightlist "drawholster" hidden
 
 //IK breathing
 
@@ -60,7 +95,7 @@ blendlayer "delta_trigger" 0 1 10 10
 
 $sequence "delta_bolt" delta {
 	anims/AN_1P_DEagle_B_Idle_Empty.smd
-	frames 0 4
+	frames 1 1
 	hidden
 	weightlist "bolt"
 }
@@ -79,6 +114,48 @@ $definemacro macro_boltback \\
 addlayer "delta_boltback"
 
 //Sequences
+
+$sequence "draw" {
+	$macro_idlesequence
+	activity "ACT_VM_DRAW" 10
+	addlayer "delta_ik_draw"
+	ikrule rhand touch "b_wpn" usesource
+	loop
+	frames 0 34
+	fps 30
+}
+
+$sequence "holster" {
+	$macro_idlesequence
+	activity "ACT_VM_HOLSTER" 10
+	addlayer "delta_ik_holster"
+	ikrule rhand touch "b_wpn" usesource
+	loop
+	frames 0 19
+	fps 30
+}
+
+$sequence "draw_empty" {
+	$macro_idlesequence
+	$macro_boltback
+	activity "ACT_VM_DRAW_EMPTY" 10
+	addlayer "delta_ik_draw"
+	ikrule rhand touch "b_wpn" usesource
+	loop
+	frames 0 34
+	fps 30
+}
+
+$sequence "holster_empty" {
+	$macro_idlesequence
+	$macro_boltback
+	activity "ACT_VM_HOLSTER_EMPTY" 10
+	addlayer "delta_ik_holster"
+	ikrule rhand touch "b_wpn" usesource
+	loop
+	frames 0 19
+	fps 30
+}
 
 $sequence "idle" {
 	$macro_idlesequence
