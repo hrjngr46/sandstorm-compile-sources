@@ -285,9 +285,9 @@ $sequence "sprint_empty" {
 
 $sequence "bash" {
 	$macro_idlesequence
-	activity "ACT_VM_HITCENTER" 10
+	activity "ACT_VM_HITCENTER" 1
 	addlayer "delta_ik_bash"
-	blendlayer "delta_ik_lhand_fix" 13 21 44 44
+	blendlayer "delta_ik_lhand_fix" 10 21 44 44
 	ikrule rhand touch "b_wpn" usesource
 	frames 0 44
 	fps 30
@@ -296,9 +296,9 @@ $sequence "bash" {
 $sequence "bash_empty" {
 	$macro_idlesequence
 	$macro_boltback
-	activity "ACT_VM_MISSCENTER" 10
+	activity "ACT_VM_MISSCENTER" 1
 	addlayer "delta_ik_bash"
-	blendlayer "delta_ik_lhand_fix" 13 21 44 44
+	blendlayer "delta_ik_lhand_fix" 10 21 44 44
 	ikrule rhand touch "b_wpn" usesource
 	frames 0 44
 	fps 30
