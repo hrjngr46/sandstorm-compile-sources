@@ -478,6 +478,11 @@ $sequence "iron_dryfire" {
 
 $sequence "ready" {
 	anims/AN_1P_DEagle_B_Ready.smd
+	{ event 5004 3 "TFA_SR.PistolUnholster" }
+	{ event 5004 54 "TFA_SR_DEAGLE.MagIn" }
+	{ event 5004 58 "TFA_SR_DEAGLE.MagHit" }
+	{ event 5004 94 "TFA_SR_DEAGLE.SlideBack" }
+	{ event 5004 103 "TFA_SR_DEAGLE.SlideRelease" }
 	activity "ACT_VM_DRAW_DEPLOYED" 1
 	fps 30
 }
@@ -485,11 +490,22 @@ $sequence "ready" {
 $sequence "reload" {
 	anims/AN_1P_DEagle_B_Reload.smd
 	activity "ACT_VM_RELOAD" 1
+	{ event 5004 18 "TFA_SR_DEAGLE.MagRelease" }
+	{ event 5004 22 "TFA_SR_DEAGLE.MagOut" }
+	{ event 5004 27 "TFA_SR_DEAGLE.MagOutArmMovement" }
+	{ event 5004 83 "TFA_SR_DEAGLE.MagIn" }
+	{ event 5004 88 "TFA_SR_DEAGLE.MagHit" }
 	fps 30
 }
 
 $sequence "reload_speed" {
 	anims/AN_1P_DEagle_B_Reload_Speed.smd
+	{ event 5004 13 "TFA_SR_DEAGLE.MagRelease" }
+	{ event 5004 15 "TFA_SR_DEAGLE.MagOut" }
+	{ event 5004 22 "TFA_SR_DEAGLE.MagOutArmMovementSpeed" }
+	{ event 5004 27 "TFA_SR.SidearmSpeedReloadPouch" }
+	{ event 5004 54 "TFA_SR_DEAGLE.MagIn" }
+	{ event 5004 60 "TFA_SR_DEAGLE.MagHit" }
 	activity "ACT_VM_RELOAD_SPEED" 1
 	fps 30
 }
@@ -497,11 +513,24 @@ $sequence "reload_speed" {
 $sequence "reload_empty" {
 	anims/AN_1P_DEagle_B_Reload_Empty.smd
 	activity "ACT_VM_RELOAD_EMPTY" 1
+	{ event 5004 18 "TFA_SR_DEAGLE.MagRelease" }
+	{ event 5004 22 "TFA_SR_DEAGLE.MagOut" }
+	{ event 5004 27 "TFA_SR_DEAGLE.MagOutArmMovement" }
+	{ event 5004 79 "TFA_SR_DEAGLE.MagIn" }
+	{ event 5004 84 "TFA_SR_DEAGLE.MagHit" }
+	{ event 5004 105 "TFA_SR_DEAGLE.SlideRelease" }
 	fps 30
 }
 
 $sequence "reload_empty_speed" {
 	anims/AN_1P_DEagle_B_Reload_Empty_Speed.smd
 	activity "ACT_VM_RELOAD_EMPTY_SPEED" 1
+	{ event 5004 13 "TFA_SR_DEAGLE.MagRelease" }
+	{ event 5004 15 "TFA_SR_DEAGLE.MagOut" }
+	{ event 5004 22 "TFA_SR_DEAGLE.MagOutArmMovementSpeed" }
+	{ event 5004 27 "TFA_SR.SidearmSpeedReloadPouch" }
+	{ event 5004 55 "TFA_SR_DEAGLE.MagIn" }
+	{ event 5004 60 "TFA_SR_DEAGLE.MagHit" }
+	{ event 5004 81 "TFA_SR_DEAGLE.SlideRelease" }
 	fps 30
 }
