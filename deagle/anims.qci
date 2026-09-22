@@ -150,10 +150,20 @@ $sequence "delta_ik_fidget_2" delta ik_fidget_2 weightlist "fidget" hidden
 $animation ik_sprint "F:\tools\Sandstorm-Compile-Sources\generic\pistol\AN_1P_GEN_PIST_M_Sprint.smd" subtract "idle_macro" 0
 $sequence "delta_ik_sprint" delta ik_sprint weightlist "sprint" loop fixuploop -1 1 hidden
 
+//IK lhand fix
+
+$animation ik_lhand_fix "anims\AN_1P_DEagle_B_Idle.smd" subtract "idle_macro" 0
+$sequence "delta_ik_lhand_fix" delta ik_lhand_fix frames 1 1 ikrule lhand touch "b_wpn" usesource
+
 //IK breathing
 
 $animation ik_breath "F:\tools\Sandstorm-Compile-Sources\generic\rifle\AN_1P_GEN_RIF_B_Breathing_01.smd"
 $sequence "delta_ik_breath" delta ik_breath weightlist "weapon" hidden
+
+//IK bash
+
+$animation ik_bash "F:\tools\Sandstorm-Compile-Sources\generic\pistol\AN_1P_GEN_PIST_B_Melee.smd"
+$sequence "delta_ik_bash" predelta ik_bash weightlist "drawholster" hidden
 
 //Trigger & bolt macro
 
@@ -193,6 +203,18 @@ $sequence "draw" {
 	$macro_idlesequence
 	activity "ACT_VM_DRAW" 1
 	addlayer "delta_ik_draw"
+	blendlayer "delta_ik_lhand_fix" 18 20 34 34
+	ikrule rhand touch "b_wpn" usesource
+	frames 0 34
+	fps 30
+}
+
+$sequence "draw_empty" {
+	$macro_idlesequence
+	$macro_boltback
+	activity "ACT_VM_DRAW_EMPTY" 1
+	addlayer "delta_ik_draw"
+	blendlayer "delta_ik_lhand_fix" 18 20 34 34
 	ikrule rhand touch "b_wpn" usesource
 	frames 0 34
 	fps 30
@@ -204,16 +226,6 @@ $sequence "holster" {
 	addlayer "delta_ik_holster"
 	ikrule rhand touch "b_wpn" usesource
 	frames 0 19
-	fps 30
-}
-
-$sequence "draw_empty" {
-	$macro_idlesequence
-	$macro_boltback
-	activity "ACT_VM_DRAW_EMPTY" 1
-	addlayer "delta_ik_draw"
-	ikrule rhand touch "b_wpn" usesource
-	frames 0 34
 	fps 30
 }
 
@@ -269,6 +281,27 @@ $sequence "sprint_empty" {
 	loop
 	frames 0 68
 	fps 50
+}
+
+$sequence "bash" {
+	$macro_idlesequence
+	activity "ACT_VM_HITCENTER" 10
+	addlayer "delta_ik_bash"
+	blendlayer "delta_ik_lhand_fix" 13 21 44 44
+	ikrule rhand touch "b_wpn" usesource
+	frames 0 44
+	fps 30
+}
+
+$sequence "bash_empty" {
+	$macro_idlesequence
+	$macro_boltback
+	activity "ACT_VM_MISSCENTER" 10
+	addlayer "delta_ik_bash"
+	blendlayer "delta_ik_lhand_fix" 13 21 44 44
+	ikrule rhand touch "b_wpn" usesource
+	frames 0 44
+	fps 30
 }
 
 $sequence "fidget" {
