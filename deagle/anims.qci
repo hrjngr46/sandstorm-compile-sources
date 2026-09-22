@@ -327,7 +327,7 @@ $sequence "fidget_empty" {
 
 $sequence "idle_fidget" {
 	$macro_idlesequence
-	activity "ACT_VM_IDLE" 1
+	activity "ACT_VM_IDLE" 2
 	addlayer "delta_ik_fidget_2"
 	ikrule rhand touch "b_wpn" usesource
 	ikrule lhand touch "b_wpn" usesource
@@ -338,7 +338,7 @@ $sequence "idle_fidget" {
 $sequence "idle_fidget_empty" {
 	$macro_idlesequence
 	$macro_boltback
-	activity "ACT_VM_IDLE_EMPTY" 1
+	activity "ACT_VM_IDLE_EMPTY" 2
 	addlayer "delta_ik_fidget_2"
 	ikrule rhand touch "b_wpn" usesource
 	ikrule lhand touch "b_wpn" usesource
