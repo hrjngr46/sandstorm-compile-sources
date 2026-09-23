@@ -204,6 +204,7 @@ $sequence "draw" {
 	activity "ACT_VM_DRAW" 1
 	addlayer "delta_ik_draw"
 	blendlayer "delta_ik_lhand_fix" 18 20 34 34
+	{ event 5004 0 "TFA_SR.PistolUnholster" }
 	ikrule rhand touch "b_wpn" usesource
 	frames 0 34
 	fps 30
@@ -215,6 +216,7 @@ $sequence "draw_empty" {
 	activity "ACT_VM_DRAW_EMPTY" 1
 	addlayer "delta_ik_draw"
 	blendlayer "delta_ik_lhand_fix" 18 20 34 34
+	{ event 5004 0 "TFA_SR.PistolUnholster" }
 	ikrule rhand touch "b_wpn" usesource
 	frames 0 34
 	fps 30
@@ -224,6 +226,7 @@ $sequence "holster" {
 	$macro_idlesequence
 	activity "ACT_VM_HOLSTER" 1
 	addlayer "delta_ik_holster"
+	{ event 5004 0 "TFA_SR.PistolHolster" }
 	ikrule rhand touch "b_wpn" usesource
 	frames 0 19
 	fps 30
@@ -234,6 +237,7 @@ $sequence "holster_empty" {
 	$macro_boltback
 	activity "ACT_VM_HOLSTER_EMPTY" 1
 	addlayer "delta_ik_holster"
+	{ event 5004 0 "TFA_SR.PistolHolster" }
 	ikrule rhand touch "b_wpn" usesource
 	frames 0 19
 	fps 30
@@ -456,6 +460,7 @@ $sequence "dryfire" {
 	$macro_trigger
 	addlayer "delta_ik_dryfire"
 	activity "ACT_VM_DRYFIRE" 1
+	{ event 5004 0 "TFA_SR.PistolDryFire" }
 	ikrule rhand touch "b_wpn" usesource
 	ikrule lhand touch "b_wpn" usesource
 	frames 0 20
@@ -469,6 +474,7 @@ $sequence "iron_dryfire" {
 	$macro_boltback
 	addlayer "delta_ik_dryfire"
 	activity "ACT_VM_PRIMARYATTACK_3" 1
+	{ event 5004 0 "TFA_SR.PistolDryFire" }
 	ikrule rhand touch "b_wpn" usesource
 	ikrule lhand touch "b_wpn" usesource
 	frames 0 20
